@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 import redis
+import os
 
 from .config import develop as default_config
 
@@ -9,12 +10,8 @@ app = Flask(__name__)
 app.secret_key = "my-secret"
 CORS(app)
 
-client = MongoClient(
-    os.environ['DB_PORT_27017_TCP_ADDR'],
-    27017)
-db = client.tododb
+mongo = MongoClient('mongodb://db:27017')
 
-mongo_client = MongoClient(default_config.MONGODB_URI, connect=False)
 
 redis_client = redis.Redis(
     host=default_config.REDIS_HOST,
@@ -27,6 +24,15 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 @app.route('/', methods=['GET'])
 def index():
     return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D"})
+
+@app.route('/create/<username>')
+def createUser(username):
+	user = mongo.db.users
+	if user.find({"name":username}).count():
+		return 'already exits:'
+	else:
+		user.insert({'name' : username})
+		return 'successful insert!'
 
 
 if __name__ == "__main__":
