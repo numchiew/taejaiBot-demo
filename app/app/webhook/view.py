@@ -25,11 +25,9 @@ def send_message(sender_id, message_text):
     )
 
     # print(r.json)
-    return
 
 def testGeneric(sender_id,message_text):
     send_message(sender_id,message_text + ' FROM GENERIC')
-    return
 
 
 @webhook_blueprint.route('/', methods=['GET'], strict_slashes=False)
@@ -53,9 +51,7 @@ def handle_message():
                     if message_text == "Generic":
                         send_message(sender_id,'test_test')
                     else:
-                        send_message(sender_id, message_text)
-
-    return ''
+                        send_message(sender_id, message_text + " from else")
 
 
 
