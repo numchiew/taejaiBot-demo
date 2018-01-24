@@ -48,11 +48,5 @@ def handle_message():
                 if messaging_event.get('message'):
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
-                    if message_text == "Generic":
-                        send_message(sender_id,'test_test')
-                    else:
-                        send_message(sender_id, message_text + " from else")
-
-
-
-
+                    send_message(sender_id,'test_test')
+    return ''
