@@ -48,5 +48,5 @@ def handle_message():
                 if messaging_event.get('message'):
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
-                    send_message(sender_id,'test_test')
+                    send_message(sender_id,'test_test %s' ,message_text)
     return ''
