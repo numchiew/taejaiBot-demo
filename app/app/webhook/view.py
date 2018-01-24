@@ -51,7 +51,7 @@ def handle_message():
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
                     if message_text == "Generic":
-                        send_message(sender_id,message_text)
+                        testGeneric(sender_id,message_text)
                     else:
                         send_message(sender_id, message_text)
 
