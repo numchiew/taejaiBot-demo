@@ -45,7 +45,7 @@ def sendGeneric(sender_id, message_text):
                     },{
                         'type':'postback',
                         'title':'ค้นหา',
-                        'payload':'test',
+                        'payload':'test'
                     }]
                 }]
             }
@@ -62,7 +62,7 @@ def sendGeneric(sender_id, message_text):
         },
         data=json.dumps({
                 'recipient': {'id': sender_id},
-                'message': {'text': messageData}
+                'message': messageData
             }
         )
     )
