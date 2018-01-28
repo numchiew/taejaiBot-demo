@@ -85,6 +85,7 @@ def handle_message():
         for entry in data['entry']:
             for messaging_event in entry['messaging']:
                 if messaging_event.get('message'):
+                    print(messaging_event)
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
                     if message_text == 'hello':
