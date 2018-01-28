@@ -23,7 +23,6 @@ def send_message(sender_id, message_text):
             }
         )
     )
-
     # print(r.json)
     return
 
@@ -50,4 +49,4 @@ def handle_message():
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
                     send_message(sender_id,'test_test')
-    return
+    return ''
