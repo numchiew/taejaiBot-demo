@@ -89,10 +89,9 @@ def handle_message():
                     message_text = messaging_event['message']['text']
                     if message_text == 'hello':
                         k = message_text + ' from this dialog'
-                        sendGeneric(sender_id, message_text)
+                        sendGeneric(sender_id, k)
                     else:
                         send_message(sender_id, message_text)
-
     return ''
 
 
