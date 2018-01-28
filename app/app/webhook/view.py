@@ -46,7 +46,11 @@ def handle_message():
                 if messaging_event.get('message'):
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
-                    send_message(sender_id, message_text)
+                    if message_text == 'hello':
+                        k = message_text + ' from this dialog'
+                        send_message(sender_id, k)
+                    else:
+                        send_message(sender_id, message_text)
 
     return ''
 
