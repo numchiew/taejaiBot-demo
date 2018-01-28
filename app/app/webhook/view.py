@@ -90,6 +90,8 @@ def handle_message():
                     if message_text == 'hello':
                         k = message_text + ' from this dialog'
                         sendGeneric(sender_id, message_text)
+                    elif message_text == 'ค้นหา':
+                        send_message(sender_id, 'ค้นหาโครงการอะไรดีครับ')
                     else:
                         send_message(sender_id, message_text)
 
