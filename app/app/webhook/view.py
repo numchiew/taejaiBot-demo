@@ -29,7 +29,7 @@ def send_message(sender_id, message_text):
 
 def sendGeneric(sender_id, message_text):
 
-    messageData = json.dump({
+    messageData = {
         'attachment':{
             'type': 'template',
             'payload': {
@@ -50,7 +50,7 @@ def sendGeneric(sender_id, message_text):
                 }]
             }
         }
-    })
+    }
 
     r = requests.post(
         'https://graph.facebook.com/v2.6/me/messages',
