@@ -86,7 +86,7 @@ def handle_message():
             for messaging_event in entry['messaging']:
                 if messaging_event.get('message'):
                     print(messaging_event)
-                    if messaging_event['sender']['id'] == 514129448794599:
+                    if messaging_event['sender']['id'] == '514129448794599':
                         continue
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
