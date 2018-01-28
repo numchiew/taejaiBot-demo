@@ -27,6 +27,47 @@ def send_message(sender_id, message_text):
     # print(r.json)
     return
 
+def sendGeneric(sender_id, message_text):
+
+    messageData = json.dump({
+        'attachment':{
+            'type': 'template',
+            'payload': {
+                'template_type':'generic',
+                'elements':[{
+                    'title':'TEST1',
+                    'subtitle':'THIS_IS_PAGE_1',
+                    'image_url':'',
+                    'buttons':[{
+                        'type':'web_url',
+                        'url':'https://taejai.com/th/projects/all/',
+                        'title':'เวปไซต์เทใจ'
+                    },{
+                        'type':'postback',
+                        'title':'ค้นหา',
+                        'payload':'test',
+                    }]
+                }]
+            }
+        }
+    })
+
+    r = requests.post(
+        'https://graph.facebook.com/v2.6/me/messages',
+        params={
+            'access_token': default_config.FB_PAGE_TOKEN
+        },
+        headers={
+            'Content-Type': 'application/json'
+        },
+        data=json.dumps({
+                'recipient': {'id': sender_id},
+                'message': {'text': messageData}
+            }
+        )
+    )
+
+    return
 
 @webhook_blueprint.route('/', methods=['GET'], strict_slashes=False)
 def validate_webhook():
@@ -48,7 +89,7 @@ def handle_message():
                     message_text = messaging_event['message']['text']
                     if message_text == 'hello':
                         k = message_text + ' from this dialog'
-                        send_message(sender_id, k)
+                        sendGeneric(sender_id, message_text)
                     else:
                         send_message(sender_id, message_text)
 
