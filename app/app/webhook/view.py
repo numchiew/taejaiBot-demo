@@ -25,6 +25,7 @@ def send_message(sender_id, message_text):
     )
 
     # print(r.json)
+    return
 
 def testGeneric(sender_id,message_text):
     send_message(sender_id,message_text + ' FROM GENERIC')
@@ -47,6 +48,6 @@ def handle_message():
             for messaging_event in entry['messaging']:
                 if messaging_event.get('message'):
                     sender_id = messaging_event['sender']['id']
-                    # message_text = messaging_event['message']['text']
+                    message_text = messaging_event['message']['text']
                     send_message(sender_id,'test_test')
     return
