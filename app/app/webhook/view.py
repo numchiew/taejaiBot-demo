@@ -146,7 +146,7 @@ def handle_message():
     return ''
 
 def searchProject(sender_id, message_text):
-    u = user.find({'sender_id' : sender_id}).sort({"sender_id", -1}).limit(1)
+    u = user.find({'sender_id' : sender_id}).sort("chatState",-1).limit(1)
     print(u[0])
     while u.hasNext():
         print(u)
