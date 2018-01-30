@@ -148,11 +148,10 @@ def handle_message():
 def searchProject(sender_id, message_text):
     u = user.findOne({'sender_id' : sender_id})
     if u.count() > 0:
-        for doc in u:
-            if(doc['chatState'] == 0):
-                send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
-            else:
-                send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
+        if(u['chatState'] == 0):
+            send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
+        else:
+            send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
     return
 
 
