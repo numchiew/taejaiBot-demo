@@ -135,26 +135,29 @@ def handle_message():
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
                     chatState = 0
-                    if message_text.find('สวัสดี') != -1:
-                        greeting(sender_id, message_text)
-                    elif message_text.find('ค้นหา') != -1:
-                        searchProject(sender_id, message_text)
-                    else:
-                        send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
-                    user.insert({'sender_id' : sender_id, 'chatState' : chatState})
+                    u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
+                    for doc in u:
+                        if message_text.find('สวัสดี') != -1:
+                            greeting(sender_id, message_text)
+                            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
+                        elif message_text.find('ค้นหา') != -1:
+                            searchProject(sender_id, message_text,doc)
+                        elif doc['chatState'] == 1:
+                            searchProject(sender_id,message_text,doc)
+                        else:
+                            send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
+                            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return ''
 
-def searchProject(sender_id, message_text):
-    u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
-    for doc in u:
-        if(doc['chatState'] == 0):
-            chatState = 1
-            send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
-            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
-        else:
-            send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
-            chatState = 0
-            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
+def searchProject(sender_id, message_text,doc):
+    if(doc['chatState'] == 0):
+        chatState = 1
+        send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
+        user.insert({'sender_id' : sender_id, 'chatState' : chatState})
+    else:
+        send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
+        chatState = 0
+        user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return
 
 
