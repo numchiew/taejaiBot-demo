@@ -145,7 +145,7 @@ def handle_message():
     return ''
 
 def searchProject(sender_id, message_text):
-    u = user.find({'sender_id' : sender_id}).sort("chatState",-1).limit(1)
+    u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
     for doc in u:
         if(doc['chatState'] == 0):
             chatState = 1
