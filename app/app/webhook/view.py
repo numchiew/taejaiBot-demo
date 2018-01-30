@@ -148,7 +148,8 @@ def handle_message():
 def searchProject(sender_id, message_text):
     u = user.find_one({'sender_id' : sender_id})
     if u is None:
-        if(u['chatState'] == 0):
+        print(u)
+        if(u['chatState'] == '0'):
             send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
         else:
             send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
