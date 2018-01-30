@@ -144,6 +144,8 @@ def handle_message():
                             searchProject(sender_id, message_text,doc)
                         elif doc['chatState'] == 1:
                             searchProject(sender_id,message_text,doc)
+                        elif (message_text.find('หมา') or message_text.find('แมว')) and message_text.find('ป่วย'):
+                            send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
                         else:
                             send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
                             user.insert({'sender_id' : sender_id, 'chatState' : chatState})
