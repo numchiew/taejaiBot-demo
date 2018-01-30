@@ -147,7 +147,8 @@ def handle_message():
 
 def searchProject(sender_id, message_text):
     u = user.find({'sender_id' : sender_id}).sort(["sender-id", -1]).limit(1)
-    if u.hasNext():
+    while u.hasNext():
+        print(u)
         if(u['chatState'] == 0):
             send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
         else:
