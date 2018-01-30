@@ -139,7 +139,6 @@ def handle_message():
                         greeting(sender_id, message_text)
                     elif message_text.find('ค้นหา') != -1:
                         searchProject(sender_id, message_text)
-                        chatState = 1
                     else:
                         send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
                     user.insert({'sender_id' : sender_id, 'chatState' : chatState})
@@ -148,11 +147,14 @@ def handle_message():
 def searchProject(sender_id, message_text):
     u = user.find({'sender_id' : sender_id}).sort("chatState",-1).limit(1)
     for doc in u:
-        print(doc)
         if(doc['chatState'] == 0):
+            chatState = 1
             send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
+            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
         else:
             send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
+            chatState = 0
+            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return
 
 
