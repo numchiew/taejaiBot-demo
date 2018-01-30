@@ -23,7 +23,7 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 
 @app.route('/', methods=['GET'])
 def index():
-    return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D ver 2"})
+    return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D ver"})
 
 @app.route('/create/<username>')
 def createUser(username):
