@@ -8,6 +8,8 @@ from ..config import develop as default_config
 webhook_blueprint = Blueprint('webhook', __name__)
 mongo = MongoClient('mongodb://db:27017')
 
+user = mongo.db.users
+
 
 def send_message(sender_id, message_text):
     r = requests.post(
@@ -140,12 +142,16 @@ def handle_message():
                         chatState = 1
                     else:
                         send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
-                    user = mongo.db.users
                     user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return ''
 
 def searchProject(sender_id, message_text):
-    send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
+    u = user.find({'sender_id' : sender_id}).sort({"_id":-1}).limit(1)
+    if(u.count()):
+        if(u['chatState'] == 0):
+            send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
+        else:
+            send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
     return
 
 
