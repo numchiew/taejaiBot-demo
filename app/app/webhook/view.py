@@ -1,11 +1,12 @@
 from flask import Blueprint, request
 import requests
 import json
-
+from pymongo import MongoClient
 from ..config import develop as default_config
 
 
 webhook_blueprint = Blueprint('webhook', __name__)
+mongo = MongoClient('mongodb://db:27017')
 
 
 def send_message(sender_id, message_text):
@@ -122,7 +123,6 @@ def validate_webhook():
 @webhook_blueprint.route('/', methods=['POST'], strict_slashes=False)
 def handle_message():
     data = request.get_json()
-
     if data and data['object'] == 'page':
         for entry in data['entry']:
             for messaging_event in entry['messaging']:
@@ -132,13 +132,16 @@ def handle_message():
                         continue
                     sender_id = messaging_event['sender']['id']
                     message_text = messaging_event['message']['text']
+                    chatState = 0
                     if message_text.find('สวัสดี') != -1:
                         greeting(sender_id, message_text)
                     elif message_text.find('ค้นหา') != -1:
                         searchProject(sender_id, message_text)
+                        chatState = 1
                     else:
                         send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
-
+                    user = mongo.db.users
+                    user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return ''
 
 def searchProject(sender_id, message_text):
