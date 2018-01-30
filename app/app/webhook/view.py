@@ -146,7 +146,7 @@ def handle_message():
     return ''
 
 def searchProject(sender_id, message_text):
-    u = user.findOne({'sender_id' : sender_id})
+    u = user.find_one({'sender_id' : sender_id})
     if u.count() > 0:
         if(u['chatState'] == 0):
             send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
