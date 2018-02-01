@@ -9,6 +9,7 @@ webhook_blueprint = Blueprint('webhook', __name__)
 mongo = MongoClient('mongodb://db:27017')
 
 user = mongo.db.users
+taejai = mongo.db.taejai
 
 
 def send_message(sender_id, message_text):
@@ -151,13 +152,20 @@ def handle_message():
                             user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return ''
 
+def sendProjectCard(result, sender_id):
+
+
+
+    return
+
 def searchProject(sender_id, message_text,doc):
     if(doc['chatState'] == 0):
         chatState = 1
         send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
-        send_message(sender_id, 'ตรงนี้ต้องคิวรี่')
+        result = taejai.find({'name' : message_text}).sort("end_date",1).limit(3)
+        sendProjectCard(result, sender_id)
         chatState = 0
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return
