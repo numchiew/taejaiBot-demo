@@ -165,7 +165,6 @@ def sendProjectCard(result, sender_id):
             }
         }
     }
-    print(messageData)
 
     r = requests.post(
         'https://graph.facebook.com/v2.6/me/messages',
@@ -181,6 +180,7 @@ def sendProjectCard(result, sender_id):
             }
         )
     )
+    print('R : ', r)
 
 
     return
