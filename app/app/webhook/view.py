@@ -155,10 +155,7 @@ def handle_message():
 def sendProjectCard(result, sender_id):
     elements = []
     for cardData in result:
-        elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + cardData['donation_limit'], "img_url" : "https://taijai.com/media/" + cardData['cover_image'], "button": [{
-            "type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{
-            "type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']
-        }]})
+        elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + cardData['donation_limit'], "img_url" : "https://taijai.com/media/" + cardData['cover_image'], "button": [{"type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{"type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']}]})
     messageData = {
         'attachment':{
             'type': 'template',
@@ -198,6 +195,7 @@ def searchProject(sender_id, message_text,doc):
         result = taejai.find({'name' : {'$regex': message_text} }).limit(3)
         if result is None:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
+            return
         sendProjectCard(result, sender_id)
         chatState = 0
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
