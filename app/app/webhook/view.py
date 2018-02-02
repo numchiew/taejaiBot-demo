@@ -168,6 +168,7 @@ def sendProjectCard(result, sender_id):
             }
         }
     }
+    print(messageData)
 
     r = requests.post(
         'https://graph.facebook.com/v2.6/me/messages',
@@ -194,11 +195,7 @@ def searchProject(sender_id, message_text,doc):
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
         taejai = mongo.db.taejai
-        queryMsg = '/' + message_text + '/'
         result = taejai.find({'name' : {'$regex': message_text} }).limit(3)
-        for i in result:
-            print('DEBUG========================')
-            print(i)
         if result is None:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
         sendProjectCard(result, sender_id)
