@@ -180,7 +180,10 @@ def sendProjectCard(result, sender_id):
             }
         )
     )
-    print(r.data)
+    print({
+                'recipient': {'id': sender_id},
+                'message': messageData
+            })
     print('R : ', r)
 
 
