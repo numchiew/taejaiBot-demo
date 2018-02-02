@@ -192,7 +192,7 @@ def searchProject(sender_id, message_text,doc):
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
         taejai = mongo.db.taejai
-        result = taejai.find({'name' : {'$regex': message_text} }).limit(3)
+        result = taejai.find({'name' : {'$regex': message_text} }).limit(1)
         if result is None:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
             return
