@@ -137,6 +137,7 @@ def handle_message():
                     message_text = messaging_event['message']['text']
                     chatState = 0
                     u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
+                    print(u.count())
                     if u.count() <= 0:
                         for doc in u:
                             if message_text.find('สวัสดี') != -1:
