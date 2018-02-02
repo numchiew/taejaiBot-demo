@@ -137,19 +137,23 @@ def handle_message():
                     message_text = messaging_event['message']['text']
                     chatState = 0
                     u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
-                    for doc in u:
-                        if message_text.find('สวัสดี') != -1:
-                            greeting(sender_id, message_text)
-                            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
-                        elif message_text.find('ค้นหา') != -1:
-                            searchProject(sender_id, message_text,doc)
-                        elif doc['chatState'] == 1:
-                            searchProject(sender_id,message_text,doc)
-                        elif (message_text.find('หมา') or message_text.find('แมว')) and message_text.find('ป่วย'):
-                            send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
-                        else:
-                            send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
-                            user.insert({'sender_id' : sender_id, 'chatState' : chatState})
+                    if u.count <= 0:
+                        for doc in u:
+                            if message_text.find('สวัสดี') != -1:
+                                greeting(sender_id, message_text)
+                                user.insert({'sender_id' : sender_id, 'chatState' : chatState})
+                            elif message_text.find('ค้นหา') != -1:
+                                searchProject(sender_id, message_text,doc)
+                            elif doc['chatState'] == 1:
+                                searchProject(sender_id,message_text,doc)
+                            elif (message_text.find('หมา') or message_text.find('แมว')) and message_text.find('ป่วย'):
+                                send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
+                            else:
+                                send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
+                                user.insert({'sender_id' : sender_id, 'chatState' : chatState})
+                    else:
+                        greeting(sender_id, message_text)
+                        user.insert({'sender_id' : sender_id, 'chatState' : 0})
     return ''
 
 def sendProjectCard(result, sender_id):
