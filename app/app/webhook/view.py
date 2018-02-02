@@ -193,10 +193,9 @@ def searchProject(sender_id, message_text,doc):
         send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
-        print('MESSAGE TEXT : %s', message_text)
         taejai = mongo.db.taejai
         queryMsg = '/' + message_text + '/'
-        result = taejai.find({'name' : message_text }).sort("end_date",1).limit(3)
+        result = taejai.find({'name' : {'$regex': message_text} }).limit(3)
         for i in result:
             print('DEBUG========================')
             print(i)
