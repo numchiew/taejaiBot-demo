@@ -9,7 +9,7 @@ webhook_blueprint = Blueprint('webhook', __name__)
 mongo = MongoClient('mongodb://db:27017')
 
 user = mongo.db.users
-taejai = mongo.db.taejai
+
 
 
 def send_message(sender_id, message_text):
@@ -189,6 +189,7 @@ def sendProjectCard(result, sender_id):
 
 def searchProject(sender_id, message_text,doc):
     queryMsg = '/' + message_text + '/'
+    taejai = mongo.db.taejai
     if(doc['chatState'] == 0):
         chatState = 1
         send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
