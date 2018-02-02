@@ -180,6 +180,7 @@ def sendProjectCard(result, sender_id):
             }
         )
     )
+    print(r.data)
     print('R : ', r)
 
 
