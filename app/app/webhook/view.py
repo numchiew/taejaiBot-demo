@@ -165,7 +165,8 @@ def sendProjectCard(result, sender_id):
             }
         }
     }
-    print(messageData)
+    print('==========================')
+    print('FACEBOOK BEFORE ', datetime.datetime.now())
     r = requests.post(
         'https://graph.facebook.com/v2.6/me/messages',
         params={
@@ -180,7 +181,8 @@ def sendProjectCard(result, sender_id):
             }
         )
     )
-
+    print('==========================')
+    print('FACEBOOK AFTER ', datetime.datetime.now())
 
     return
 
