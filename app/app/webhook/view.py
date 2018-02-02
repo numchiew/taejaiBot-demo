@@ -155,7 +155,7 @@ def handle_message():
 def sendProjectCard(result, sender_id):
     elements = []
     for cardData in result:
-        elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + str(cardData['donation_limit']), "img_url" : "https://taijai.com/media/" + cardData['cover_image'], "button": [{"type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{"type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']}]})
+        elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + str(cardData['donation_limit']), "image_url" : "https://taijai.com/media/" + cardData['cover_image'], "button": [{"type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{"type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']}]})
     messageData = {
         'attachment':{
             'type': 'template',
