@@ -145,7 +145,7 @@ def handle_message():
                             searchProject(sender_id, message_text,doc)
                         elif doc['chatState'] == 1:
                             searchProject(sender_id,message_text,doc)
-                        elif message_text.find('หมา') or message_text.find('แมว') and message_text.find('ป่วย'):
+                        elif (message_text.find('หมา') or message_text.find('แมว')) and message_text.find('ป่วย'):
                             send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
                         else:
                             send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
@@ -165,8 +165,6 @@ def sendProjectCard(result, sender_id):
             }
         }
     }
-    print('==========================')
-    print('FACEBOOK BEFORE ', datetime.datetime.now())
     r = requests.post(
         'https://graph.facebook.com/v2.6/me/messages',
         params={
@@ -181,9 +179,6 @@ def sendProjectCard(result, sender_id):
             }
         )
     )
-    print('==========================')
-    print('FACEBOOK AFTER ', datetime.datetime.now())
-
     return
 
 def searchProject(sender_id, message_text,doc):
@@ -193,17 +188,11 @@ def searchProject(sender_id, message_text,doc):
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
         taejai = mongo.db.taejai
-        print('==========================')
-        print('start ', datetime.datetime.now())
         result = taejai.find({'name' : {'$regex': message_text} }).limit(3)
-        print('==========================')
-        print('after query ', datetime.datetime.now())
         if result.count() <= 0:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
             return
         sendProjectCard(result, sender_id)
-        print('==========================')
-        print('sent ', datetime.datetime.now())
         chatState = 0
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     return
