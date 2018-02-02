@@ -153,18 +153,48 @@ def handle_message():
     return ''
 
 def sendProjectCard(result, sender_id):
+    elements = []
+    for cardData in result:
+        elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + cardData['donation_limit'], "img_url" : "https://taijai.com/media/" + cardData['cover_image'], "button": [{
+            "type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{
+            "type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']
+        }]})
+    messageData = {
+        'attachment':{
+            'type': 'template',
+            'payload': {
+                'template_type':'generic',
+                'elements': elements
+            }
+        }
+    }
 
+    r = requests.post(
+        'https://graph.facebook.com/v2.6/me/messages',
+        params={
+            'access_token': default_config.FB_PAGE_TOKEN
+        },
+        headers={
+            'Content-Type': 'application/json'
+        },
+        data=json.dumps({
+                'recipient': {'id': sender_id},
+                'message': messageData
+            }
+        )
+    )
 
 
     return
 
 def searchProject(sender_id, message_text,doc):
+    queryMsg = '/' + message_text + '/'
     if(doc['chatState'] == 0):
         chatState = 1
         send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
-        result = taejai.find({'name' : message_text}).sort("end_date",1).limit(3)
+        result = taejai.find({'name' : queryMsg }).sort("end_date",1).limit(3)
         sendProjectCard(result, sender_id)
         chatState = 0
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
