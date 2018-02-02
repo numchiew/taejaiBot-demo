@@ -195,7 +195,8 @@ def searchProject(sender_id, message_text,doc):
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
         result = taejai.find({'name' : queryMsg }).sort("end_date",1).limit(3)
-        print(result)
+        for i in result:
+            print(i)
         if result is None:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
         sendProjectCard(result, sender_id)
