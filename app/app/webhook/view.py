@@ -146,7 +146,7 @@ def handle_message():
                                 searchProject(sender_id, message_text,doc)
                             elif doc['chatState'] == 1:
                                 searchProject(sender_id,message_text,doc)
-                            elif (message_text.find('หมา') or message_text.find('แมว')) and message_text.find('ป่วย'):
+                            elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and message_text.find('ป่วย') != -1:
                                 send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
                             else:
                                 send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
