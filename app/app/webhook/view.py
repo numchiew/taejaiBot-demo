@@ -188,13 +188,13 @@ def sendProjectCard(result, sender_id):
     return
 
 def searchProject(sender_id, message_text,doc):
-    queryMsg = '/' + message_text + '/'
-    taejai = mongo.db.taejai
     if(doc['chatState'] == 0):
         chatState = 1
         send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
         user.insert({'sender_id' : sender_id, 'chatState' : chatState})
     else:
+        taejai = mongo.db.taejai
+        queryMsg = '/' + message_text + '/'
         result = taejai.find({'name' : queryMsg }).sort("end_date",1).limit(3)
         for i in result:
             print('DEBUG========================')
