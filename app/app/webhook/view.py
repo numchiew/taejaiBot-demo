@@ -257,8 +257,8 @@ def resendPostBack(sender_id, message_text):
                 'text':message_text,
                     'buttons':[{
                         'type':'postback',
-                        'title':'ค้นหา',
-                        'payload':'ต้องการให้ช่วย'
+                        'title':'ต้องการให้ช่วย',
+                        'payload':'ค้นหา'
                     }]
                 }
             }
