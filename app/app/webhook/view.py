@@ -185,7 +185,7 @@ def handle_message():
                                 searchProject(sender_id, message_text,doc)
                             elif doc['chatState'] == 1:
                                 searchProject(sender_id,message_text,doc)
-                            elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง' != -1):
+                            elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง') != -1:
                                 guideline(sender_id, message_text)
                             elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and message_text.find('ป่วย') != -1:
                                 send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
