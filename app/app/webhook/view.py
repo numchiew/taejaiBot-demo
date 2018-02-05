@@ -73,6 +73,45 @@ def sendGeneric(sender_id, message_text):
 
     return
 
+def guideline(sender_id, message_text):
+    messageData = {
+        'attachment':{
+            'type': 'template',
+            'payload': {
+                'template_type':'generic',
+                'elements':[{
+                    'title':'การใช้งานเบิ้องต้น',
+                    'subtitle':'พิมพ์ ค้นหา เพื่อเริ่มต้นการค้นหาโครงการต่างๆ',
+                    'image_url':'',
+                    'buttons':[{
+                        'type':'web_url',
+                        'url':'https://taejai.com/th/projects/all/',
+                        'title':'เวปไซต์เทใจ'
+                    },{
+                        'type':'postback',
+                        'title':'ค้นหา',
+                        'payload':'test'
+                    }]
+                }]
+            }
+        }
+    }
+    r = requests.post(
+        'https://graph.facebook.com/v2.6/me/messages',
+        params={
+            'access_token': default_config.FB_PAGE_TOKEN
+        },
+        headers={
+            'Content-Type': 'application/json'
+        },
+        data=json.dumps({
+                'recipient': {'id': sender_id},
+                'message': messageData
+            }
+        )
+    )
+    return
+
 def greeting(sender_id, message_text):
 
     messageData = {
@@ -146,12 +185,15 @@ def handle_message():
                                 searchProject(sender_id, message_text,doc)
                             elif doc['chatState'] == 1:
                                 searchProject(sender_id,message_text,doc)
+                            elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง' != -1):
+                                guideline(sender_id, message_text)
                             elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and message_text.find('ป่วย') != -1:
                                 send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
                             else:
                                 send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
                                 user.insert({'sender_id' : sender_id, 'chatState' : chatState})
                     else:
+                        send_message(sender_id, 'สวัสดีครับ สำหรับตอนนี้สามารถค้นหาโครงการต่างๆของทางเทใจได้ โดยการพิมพ์ว่า ค้นหา แล้วตามด้วยชื่อโครงการที่สนใจนะครับ')
                         greeting(sender_id, message_text)
                         user.insert({'sender_id' : sender_id, 'chatState' : 0})
     return ''
