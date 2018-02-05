@@ -114,9 +114,29 @@ def guideline(sender_id, message_text):
 
 def greeting(sender_id, message_text, doc):
 
+    text = 'เมี๊ยว สวัสดีคุณ'+doc['sender_name']+' เหมียวสามารถช่วยคุณหาโครงการในเทใจได้นะ'
+    messageData = {
+        'attachment':{
+            'type': 'template',
+            'payload': {
+                'template_type':'generic',
+                'elements':[{
+                    'title':'สวัสดี',
+                    'subtitle': text,
+                    'image_url':'',
+                    'buttons':[{
+                        'type':'postback',
+                        'title':'ค้นหา',
+                        'payload':''
+                    }]
+                }]
+            }
+        }
+    }
+
     greeting_dict = ' เหมียวสามารถช่วยคุณค้นหาโครงการในเทใจได้นะ', ' เหมียวพร้อมช่วยคุณหาโครงการเสมอนะ', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงงาน'
     # send_message(sender_id, 'เมี๊ยว สวัสดีคุณ'+doc['first_name']+' เหมียวสามารถช่วยคุณค้นหาโครงการในเทใจได้นะ')
-    text = 'เมี๊ยว สวัสดีคุณ'+doc['sender_name']+' เหมียวสามารถช่วยคุณหาโครงการในเทใจได้นะ'
+
     r = requests.post(
         'https://graph.facebook.com/v2.6/me/messages',
         params={
@@ -199,7 +219,7 @@ def sendProjectCard(result, sender_id):
     elements = []
     for cardData in result:
         elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + str(cardData['donation_limit']),
-                         "image_url":"https://taijai.com/media/" + cardData['cover_image'], "buttons": [{"type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{"type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']}]})
+                         "image_url":"https://taejai.com/media/" + cardData['cover_image'], "buttons": [{"type":"web_url","url":"https://taejai.com/th/d/"+cardData['slug'],"title":"เวปไซตโครงการ"},{"type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug'] + '/#donate'}]})
     messageData = {
         'attachment':{
             'type': 'template',
