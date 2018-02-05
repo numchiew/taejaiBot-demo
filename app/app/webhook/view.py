@@ -90,7 +90,7 @@ def guideline(sender_id, message_text):
                     },{
                         'type':'postback',
                         'title':'ค้นหา',
-                        'payload':'test'
+                        'payload':'ค้นหา'
                     }]
                 }]
             }
@@ -127,7 +127,7 @@ def greeting(sender_id, message_text, doc):
                     'buttons':[{
                         'type':'postback',
                         'title':'ค้นหา',
-                        'payload':'test'
+                        'payload':'ค้นหา'
                     }]
                 }]
             }
@@ -176,6 +176,7 @@ def handle_message():
     data = request.get_json()
     if data and data['object'] == 'page':
         for entry in data['entry']:
+            print(entry)
             for messaging_event in entry['messaging']:
                 if messaging_event.get('message'):
                     print(messaging_event)
