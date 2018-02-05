@@ -237,6 +237,7 @@ def searchProject(sender_id, message_text,doc):
         result = taejai.find({'name' : {'$regex': message_text} }).limit(3)
         if result.count() <= 0:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
+            user.insert({'sender_id' : sender_id, 'chatState' : 0})
             return
         sendProjectCard(result, sender_id)
         chatState = 0
