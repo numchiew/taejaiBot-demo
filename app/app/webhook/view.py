@@ -114,7 +114,7 @@ def guideline(sender_id, message_text):
 
 def greeting(sender_id, message_text, doc):
 
-    text = 'เมี๊ยว สวัสดีคุณ'+doc['sender_name']+' เหมียวสามารถช่วยคุณหาโครงการในเทใจได้นะ'
+    text = 'สวัสดีคุณ'+doc['sender_name']+' เหมียวสามารถช่วยคุณหาโครงการในเทใจได้นะ'
 
     messageData = {
         'attachment':{
@@ -125,7 +125,7 @@ def greeting(sender_id, message_text, doc):
                     'buttons':[{
                         'type':'postback',
                         'title':'ค้นหา',
-                        'payload':'ค้นหา'
+                        'payload':'ต้องการให้ช่วย'
                     }]
                 }
             }
@@ -248,6 +248,37 @@ def sendProjectCard(result, sender_id):
     )
     return
 
+def resendPostBack(sender_id, message_text):
+    messageData = {
+        'attachment':{
+            'type': 'template',
+            'payload': {
+                'template_type':'button',
+                'text':message_text,
+                    'buttons':[{
+                        'type':'postback',
+                        'title':'ค้นหา',
+                        'payload':'ต้องการให้ช่วย'
+                    }]
+                }
+            }
+        }
+    r = requests.post(
+        'https://graph.facebook.com/v2.6/me/messages',
+        params={
+            'access_token': default_config.FB_PAGE_TOKEN
+        },
+        headers={
+            'Content-Type': 'application/json'
+        },
+        data=json.dumps({
+                'recipient': {'id': sender_id},
+                'message': messageData
+            }
+        )
+    )
+    return ''
+
 def searchProject(sender_id, message_text,doc):
     if(doc['chatState'] == 0):
         chatState = 1
@@ -259,7 +290,7 @@ def searchProject(sender_id, message_text,doc):
         taejai = mongo.db.taejai
         result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
-            send_message(sender_id, 'เหมียว ลองหาแล้วแต่ไมเจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
+            resendPostBack(sender_id, 'เหมียว ลองหาแล้วแต่ไมเจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
             user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : 0})
             return
         sendProjectCard(result, sender_id)
