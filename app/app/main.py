@@ -28,7 +28,8 @@ def index():
 @app.route('/search/<sender_id>')
 def search(sender_id):
 	r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
-	return jsonify(r)
+	print(r)
+	return r
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
