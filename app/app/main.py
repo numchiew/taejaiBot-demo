@@ -28,7 +28,7 @@ def index():
 @app.route('/search/<sender_id>')
 def search(sender_id):
 	r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
-	print(r.first_name)
+	print(r.json())
 	return ''
 
 if __name__ == "__main__":
