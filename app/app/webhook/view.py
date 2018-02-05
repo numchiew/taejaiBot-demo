@@ -147,14 +147,7 @@ def greeting(sender_id, message_text, doc):
         },
         data=json.dumps({
                 'recipient': {'id': sender_id},
-                'message': {'text': text,
-                            "quick_replies":[{
-                                "content_type":"text",
-                                 "title":"ค้นหา",
-                                 "payload":"",
-                                 "image_url":"http://example.com/img/red.png"
-                                }]
-                        }
+                'message': {'text': messageData}
                  }
         )
     )
