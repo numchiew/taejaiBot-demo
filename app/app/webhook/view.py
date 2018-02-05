@@ -120,19 +120,17 @@ def greeting(sender_id, message_text, doc):
         'attachment':{
             'type': 'template',
             'payload': {
-                'template_type':'generic',
-                'elements':[{
-                    'title':'สวัสดีจ้า',
-                    'subtitle':text,
+                'template_type':'button',
+                'text':text,
                     'buttons':[{
                         'type':'postback',
                         'title':'ค้นหา',
                         'payload':'ค้นหา'
                     }]
-                }]
+                }
             }
         }
-    }
+
 
     greeting_dict = ' เหมียวสามารถช่วยคุณค้นหาโครงการในเทใจได้นะ', ' เหมียวพร้อมช่วยคุณหาโครงการเสมอนะ', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงงาน'
     # send_message(sender_id, 'เมี๊ยว สวัสดีคุณ'+doc['first_name']+' เหมียวสามารถช่วยคุณค้นหาโครงการในเทใจได้นะ')
