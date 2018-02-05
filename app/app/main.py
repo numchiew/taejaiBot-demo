@@ -3,6 +3,7 @@ from flask_cors import CORS
 from pymongo import MongoClient
 import redis
 import os
+import deepcut
 
 from .config import develop as default_config
 
@@ -33,6 +34,8 @@ def createUser(username):
 	else:
 		user.insert({'name' : username})
 		return 'successful insert!'
+
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)

@@ -178,7 +178,7 @@ def handle_message():
                     u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
                     if u.count() > 0:
                         for doc in u:
-                            if message_text.find('สวัสดี') != -1:
+                            if message_text.find('สวัสดี') != -1 or message_text.find('ทักทาย'):
                                 greeting(sender_id, message_text)
                                 user.insert({'sender_id' : sender_id, 'chatState' : chatState})
                             elif message_text.find('ค้นหา') != -1:
