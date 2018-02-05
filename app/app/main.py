@@ -2,8 +2,6 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 import redis
-import os
-import deepcut
 
 from .config import develop as default_config
 
@@ -25,17 +23,5 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 @app.route('/', methods=['GET'])
 def index():
     return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D ver"})
-
-@app.route('/create/<username>')
-def createUser(username):
-	user = mongo.db.users
-	if user.find({"name":username}).count():
-		return 'already exits:'
-	else:
-		user.insert({'name' : username})
-		return 'successful insert!'
-
-
-
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
