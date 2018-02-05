@@ -147,8 +147,8 @@ def greeting(sender_id, message_text, doc):
         },
         data=json.dumps({
                 'recipient': {'id': sender_id},
-                'message': {'text': messageData}
-                 }
+                'message': messageData
+            }
         )
     )
     # "quick_replies":[
