@@ -180,7 +180,7 @@ def handle_message():
                         for doc in u:
                             if message_text.find('สวัสดี') != -1 or message_text.find('ทักทาย') != -1:
                                 greeting(sender_id, message_text)
-                                user.insert({'sender_id' : sender_id, 'message_text' : message_text, 'chatState' : chatState})
+                                user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
                             elif message_text.find('ค้นหา') != -1:
                                 searchProject(sender_id, message_text,doc)
                             elif doc['chatState'] == 1:
@@ -190,8 +190,7 @@ def handle_message():
                             elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and message_text.find('ป่วย') != -1:
                                 send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
                             else:
-                                send_message(sender_id, 'ยังไม่เข้าใจอ่ะว่าหมายความว่าอะไร ตอนนี้เราทำได้แค่ค้นหาโครงการนะ')
-                                user.insert({'sender_id' : sender_id, 'message_text' : message_text, 'chatState' : chatState})
+                                user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
                     else:
                         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
                         data = r.json()
@@ -234,17 +233,17 @@ def searchProject(sender_id, message_text,doc):
     if(doc['chatState'] == 0):
         chatState = 1
         send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
-        user.insert({'sender_id' : sender_id, 'message_text' : message_text, 'chatState' : chatState})
+        user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
     else:
         taejai = mongo.db.taejai
         result = taejai.find({'name' : {'$regex': message_text} }).limit(3)
         if result.count() <= 0:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
-            user.insert({'sender_id' : sender_id, 'message_text' : message_text, 'chatState' : 0})
+            user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : 0})
             return
         sendProjectCard(result, sender_id)
         chatState = 0
-        user.insert({'sender_id' : sender_id, 'message_text' : message_text, 'chatState' : chatState})
+        user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
     return
 
 
