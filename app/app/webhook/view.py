@@ -204,14 +204,14 @@ def handle_message():
                             elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง') != -1:
                                 guideline(sender_id, message_text)
                             elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and message_text.find('ป่วย') != -1:
-                                send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
+                                send_message(sender_id, 'เหมียว... เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะ')
                             else:
                                 send_message(sender_id,'ยังไม่เข้าใจอ่ะเมี๊ยว')
                                 user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
                     else:
                         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
                         data = r.json()
-                        send_message(sender_id, 'สวัสดีครับ '+data['first_name']+' สำหรับตอนนี้สามารถค้นหาโครงการต่างๆของทางเทใจได้ โดยการพิมพ์ว่า ค้นหา แล้วตามด้วยชื่อโครงการที่สนใจนะครับ')
+                        send_message(sender_id, 'สวัสดีคุณ '+data['first_name'])
                         user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
                         k = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
                         for doc in k:
@@ -290,7 +290,7 @@ def searchProject(sender_id, message_text,doc):
         taejai = mongo.db.taejai
         result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
-            resendPostBack(sender_id, 'เหมียว ลองหาแล้วแต่ไมเจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
+            resendPostBack(sender_id, 'เหมียว ลองหาแล้วแต่ไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
             user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : 0})
             return
         sendProjectCard(result, sender_id)
