@@ -112,31 +112,11 @@ def guideline(sender_id, message_text):
     )
     return
 
-def greeting(sender_id, message_text):
+def greeting(sender_id, message_text, doc):
 
-    messageData = {
-        'attachment':{
-            'type': 'template',
-            'payload': {
-                'template_type':'generic',
-                'elements':[{
-                    'title':'การใช้งานเบิ้องต้น',
-                    'subtitle':'สวัสดี ที่ผมทำได้ในขณะนี้คือการค้นหาโครงการ',
-                    'image_url':'',
-                    'buttons':[{
-                        'type':'web_url',
-                        'url':'https://taejai.com/th/projects/all/',
-                        'title':'เวปไซต์เทใจ'
-                    },{
-                        'type':'postback',
-                        'title':'ค้นหา',
-                        'payload':'test'
-                    }]
-                }]
-            }
-        }
-    }
-
+    greeting_dict = ' เหมียวสามารถช่วยคุณค้นหาโครงการในเทใจได้นะ', ' เหมียวพร้อมช่วยคุณหาโครงการเสมอนะ', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงงาน'
+    # send_message(sender_id, 'เมี๊ยว สวัสดีคุณ'+doc['first_name']+' เหมียวสามารถช่วยคุณค้นหาโครงการในเทใจได้นะ')
+    text = 'เมี๊ยว สวัสดีคุณ'+doc['first_name']+' เหมียวสามารถช่วยคุณหาโครงการในเทใจได้นะ'
     r = requests.post(
         'https://graph.facebook.com/v2.6/me/messages',
         params={
@@ -147,10 +127,25 @@ def greeting(sender_id, message_text):
         },
         data=json.dumps({
                 'recipient': {'id': sender_id},
-                'message': messageData
-            }
+                'message': {'text': text,
+                            "quick_replies":[{
+                                "content_type":"text",
+                                 "title":"ค้นหา",
+                                 "payload":"",
+                                 "image_url":"http://example.com/img/red.png"
+                                }]
+                        }
+                 }
         )
     )
+    # "quick_replies":[
+    #   {
+    #     "content_type":"text",
+    #     "title":"<BUTTON_TEXT>",
+    #     "image_url":"http://example.com/img/red.png",
+    #     "payload":"<STRING_SENT_TO_WEBHOOK>"
+    #   }
+    # ]
 
     return
 
@@ -179,7 +174,7 @@ def handle_message():
                     if u.count() > 0:
                         for doc in u:
                             if message_text.find('สวัสดี') != -1 or message_text.find('ทักทาย') != -1:
-                                greeting(sender_id, message_text)
+                                greeting(sender_id, message_text, doc)
                                 user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
                             elif message_text.find('ค้นหา') != -1:
                                 searchProject(sender_id, message_text,doc)
@@ -190,6 +185,7 @@ def handle_message():
                             elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and message_text.find('ป่วย') != -1:
                                 send_message(sender_id, 'เทใจไม่มีโครงการเกี่ยวกับสัตว์ป่วยนะครับ รบกวนดูช่องทางอื่น')
                             else:
+                                send_message(sender_id,'ยังไม่เข้าใจอ่ะเมี๊ยว')
                                 user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
                     else:
                         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
