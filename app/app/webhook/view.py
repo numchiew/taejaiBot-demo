@@ -251,7 +251,7 @@ def sendProjectCard(result, sender_id):
 def searchProject(sender_id, message_text,doc):
     if(doc['chatState'] == 0):
         chatState = 1
-        send_message(sender_id, 'ต้องการค้นหาโครงการอะไรครับ')
+        send_message(sender_id, 'ให้เหมียวช่วยหาโครงการเกี่ยวกับอะไรดีล่ะ ? ')
         user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
     else:
         a = str(datetime.now())
@@ -259,7 +259,7 @@ def searchProject(sender_id, message_text,doc):
         taejai = mongo.db.taejai
         result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
-            send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
+            send_message(sender_id, 'เหมียว ลองหาแล้วแต่ไมเจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
             user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : 0})
             return
         sendProjectCard(result, sender_id)
