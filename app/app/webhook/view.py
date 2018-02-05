@@ -121,9 +121,8 @@ def greeting(sender_id, message_text, doc):
             'payload': {
                 'template_type':'generic',
                 'elements':[{
-                    'title':'สวัสดี',
+                    'title':'สวัสดีจ้า',
                     'subtitle': text,
-                    'image_url':'',
                     'buttons':[{
                         'type':'postback',
                         'title':'ค้นหา',
