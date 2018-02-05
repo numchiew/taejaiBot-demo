@@ -176,7 +176,7 @@ def handle_message():
     data = request.get_json()
     if data and data['object'] == 'page':
         for entry in data['entry']:
-            if entry['messaging'] is None:
+            if 'messaging'not in entry:
                 for postback_event in entry['standby']:
                     sender_id = postback_event['sender']['id']
                     message_text = postback_event['postback']['title']
