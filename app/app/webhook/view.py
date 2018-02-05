@@ -214,7 +214,7 @@ def handle_message():
                         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
                         data = r.json()
                         send_message(sender_id, 'สวัสดีครับ '+data['first_name']+' สำหรับตอนนี้สามารถค้นหาโครงการต่างๆของทางเทใจได้ โดยการพิมพ์ว่า ค้นหา แล้วตามด้วยชื่อโครงการที่สนใจนะครับ')
-                        greeting(sender_id, message_text)
+                        greeting(sender_id, message_text,doc)
                         user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
     return ''
 
