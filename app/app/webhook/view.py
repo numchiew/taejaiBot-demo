@@ -49,7 +49,7 @@ def sendGeneric(sender_id, message_text):
                     },{
                         'type':'postback',
                         'title':'ค้นหา',
-                        'payload':'test'
+                        'payload':'ค้นหา'
                     }]
                 }]
             }
@@ -176,10 +176,18 @@ def handle_message():
     data = request.get_json()
     if data and data['object'] == 'page':
         for entry in data['entry']:
-            print(entry)
+            if entry['messaging'] is None:
+                for postback_event in entry['standby']:
+                    sender_id = postback_event['sender']['id']
+                    message_text = postback_event['postback']['title']
+                    u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
+                    if u.count() > 0:
+                        for doc in u:
+                            if message_text.find('ค้นหา') != -1:
+                                searchProject(sender_id, message_text, doc)
+                return ''
             for messaging_event in entry['messaging']:
                 if messaging_event.get('message'):
-                    print(messaging_event)
                     if messaging_event['sender']['id'] == '514129448794599':
                         continue
                     sender_id = messaging_event['sender']['id']
