@@ -115,6 +115,7 @@ def guideline(sender_id, message_text):
 def greeting(sender_id, message_text, doc):
 
     text = 'เมี๊ยว สวัสดีคุณ'+doc['sender_name']+' เหมียวสามารถช่วยคุณหาโครงการในเทใจได้นะ'
+
     messageData = {
         'attachment':{
             'type': 'template',
@@ -122,11 +123,11 @@ def greeting(sender_id, message_text, doc):
                 'template_type':'generic',
                 'elements':[{
                     'title':'สวัสดีจ้า',
-                    'subtitle': text,
+                    'subtitle':text,
                     'buttons':[{
                         'type':'postback',
                         'title':'ค้นหา',
-                        'payload':''
+                        'payload':'test'
                     }]
                 }]
             }
@@ -150,6 +151,7 @@ def greeting(sender_id, message_text, doc):
             }
         )
     )
+    print(r)
     # "quick_replies":[
     #   {
     #     "content_type":"text",
