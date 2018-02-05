@@ -89,7 +89,7 @@ def guideline(sender_id, message_text):
                         'title':'เวปไซต์เทใจ'
                     },{
                         'type':'postback',
-                        'title':'ต้องการให้ช่วย',
+                        'title':'ค้นหาโครงการ',
                         'payload':'ค้นหา'
                     }]
                 }]
