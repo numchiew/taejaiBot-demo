@@ -197,7 +197,7 @@ def handle_message():
                         data = r.json()
                         send_message(sender_id, 'สวัสดีครับ '+data.first_name+' สำหรับตอนนี้สามารถค้นหาโครงการต่างๆของทางเทใจได้ โดยการพิมพ์ว่า ค้นหา แล้วตามด้วยชื่อโครงการที่สนใจนะครับ')
                         greeting(sender_id, message_text)
-                        user.insert({'sender_id' : sender_id, 'sender_name' : data.first_name, 'chatState' : 0})
+                        user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
     return ''
 
 def sendProjectCard(result, sender_id):
