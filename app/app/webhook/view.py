@@ -48,7 +48,7 @@ def sendGeneric(sender_id, message_text):
                         'title':'เวปไซต์เทใจ'
                     },{
                         'type':'postback',
-                        'title':'ค้นหา',
+                        'title':'ต้องการให้ช่วย',
                         'payload':'ค้นหา'
                     }]
                 }]
@@ -89,7 +89,7 @@ def guideline(sender_id, message_text):
                         'title':'เวปไซต์เทใจ'
                     },{
                         'type':'postback',
-                        'title':'ค้นหา',
+                        'title':'ต้องการให้ช่วย',
                         'payload':'ค้นหา'
                     }]
                 }]
@@ -124,8 +124,8 @@ def greeting(sender_id, message_text, doc):
                 'text':text,
                     'buttons':[{
                         'type':'postback',
-                        'title':'ค้นหา',
-                        'payload':'ต้องการให้ช่วย'
+                        'title':'ต้องการให้ช่วย',
+                        'payload':'ค้นหา'
                     }]
                 }
             }
@@ -181,7 +181,7 @@ def handle_message():
                     u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
                     if u.count() > 0:
                         for doc in u:
-                            if message_text.find('ค้นหา') != -1:
+                            if message_text.find('ค้นหา') != -1 or message_text.find('ต้องการให้ช่วย') != -1:
                                 searchProject(sender_id, message_text, doc)
                 return ''
             for messaging_event in entry['messaging']:
@@ -197,7 +197,7 @@ def handle_message():
                             if message_text.find('สวัสดี') != -1 or message_text.find('ทักทาย') != -1:
                                 greeting(sender_id, message_text, doc)
                                 user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
-                            elif message_text.find('ค้นหา') != -1:
+                            elif message_text.find('ค้นหา') != -1 or message_text.find('ต้องการให้ช่วย') != -1:
                                 searchProject(sender_id, message_text,doc)
                             elif doc['chatState'] == 1:
                                 searchProject(sender_id,message_text,doc)
