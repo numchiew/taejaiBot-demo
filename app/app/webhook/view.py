@@ -3,7 +3,7 @@ import requests
 import json
 from pymongo import MongoClient
 from ..config import develop as default_config
-import datetime
+from datetime import datetime
 
 webhook_blueprint = Blueprint('webhook', __name__)
 mongo = MongoClient('mongodb://db:27017')
@@ -266,6 +266,8 @@ def searchProject(sender_id, message_text,doc):
         chatState = 0
         user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
     return
+
+# db.taejai.find({'name':{'$regex': 'Rice'} ,'end_date' : {'$gte': '2018-01-01'} }).limit(3)
 
 
 
