@@ -257,7 +257,7 @@ def searchProject(sender_id, message_text,doc):
         a = str(datetime.now())
         date = a[0:10]
         taejai = mongo.db.taejai
-        result = taejai.find({'name' : {'$regex': message_text}, 'end_date' : {'$gte': date} }).limit(3)
+        result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
             send_message(sender_id, 'ขณะนี้ยังไม่มีชื่อโครงการที่ใกล้เคียงกับ ' + message_text + ' นะครับ')
             user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : 0})
@@ -266,8 +266,6 @@ def searchProject(sender_id, message_text,doc):
         chatState = 0
         user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
     return
-
-# db.taejai.find({'name':{'$regex': 'Rice'} ,'end_date' : {'$gte': '2018-01-01'} }).limit(3)
 
 
 
