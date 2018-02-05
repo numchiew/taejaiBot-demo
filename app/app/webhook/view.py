@@ -195,13 +195,15 @@ def handle_message():
                     else:
                         send_message(sender_id, 'สวัสดีครับ สำหรับตอนนี้สามารถค้นหาโครงการต่างๆของทางเทใจได้ โดยการพิมพ์ว่า ค้นหา แล้วตามด้วยชื่อโครงการที่สนใจนะครับ')
                         greeting(sender_id, message_text)
+
                         user.insert({'sender_id' : sender_id, 'chatState' : 0})
     return ''
 
 def sendProjectCard(result, sender_id):
     elements = []
     for cardData in result:
-        elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + str(cardData['donation_limit']), "image_url" : "https://taijai.com/media/" + cardData['cover_image'], "buttons": [{"type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{"type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']}]})
+        elements.append({"title": cardData['name'], "subtitle" : "เป้าหมาย " + str(cardData['donation_limit']),
+                         "image_url":"https://taijai.com/media/" + cardData['cover_image'], "buttons": [{"type":"web_url","url":"https://taejai.com/th/projects/all/","title":"เวปไซต์"},{"type":"web_url","title":"บริจาค","url":"https://taejai.com/th/d/" + cardData['slug']}]})
     messageData = {
         'attachment':{
             'type': 'template',

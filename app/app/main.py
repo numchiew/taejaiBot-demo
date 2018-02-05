@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 import redis
+import requests
 
 from .config import develop as default_config
 
@@ -23,5 +24,11 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 @app.route('/', methods=['GET'])
 def index():
     return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D ver"})
+
+@app.route('/search/<sender_id>')
+def search(sender_id):
+	r = requests.get('https://graph.facebook.com/v2.6/'+sender_id,params={'access_token' : default_config.FB_PAGE_TOKEN})
+	return jsonify(r)
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
