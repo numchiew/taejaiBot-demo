@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import redis
 import requests
 import datetime
-import deepcut
+import PyICU
 
 from .config import develop as default_config
 
@@ -34,10 +34,33 @@ def search(sender_id):
 	print(r.json())
 	return data['first_name']
 
-@app.route('/deepcut/<text>')
-def tadkaam(text):
-    kaam = deepcut.tokenize(text)
-    return jsonify(kaam)
+@app.route('/tadkaam/<text>')
+def isThai(chr):
+    cVal = ord(chr)
+    if(cVal >= 3584 and cVal <= 3711):
+        return True
+    return False
+def warp(txt):
+    #print(txt)
+    bd = PyICU.BreakIterator.createWordInstance(PyICU.Locale("th"))
+    bd.setText(txt)
+    lastPos = bd.first()
+    retTxt = ""
+    try:
+        while(1):
+            currentPos = next(bd)
+            retTxt += txt[lastPos:currentPos]
+            #เฉพาะภาษาไทยเท่านั้น
+            if(isThai(txt[currentPos-1])):
+                if(currentPos < len(txt)):
+                    if(isThai(txt[currentPos])):
+                        #คั่นคำที่แบ่ง
+                        retTxt += "|"
+            lastPos = currentPos
+    except StopIteration:
+        pass
+        #retTxt = retTxt[:-1]
+    return jsonify(retTxt)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
