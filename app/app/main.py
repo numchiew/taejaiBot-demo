@@ -35,8 +35,8 @@ def search(sender_id):
 	return data['first_name']
 
 @app.route('/tadkaam/<txt>')
-def isThai(chr):
-    cVal = ord(chr)
+def isThai(txt):
+    cVal = ord(txt)
     if(cVal >= 3584 and cVal <= 3711):
         return True
     return False
