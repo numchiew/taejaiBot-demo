@@ -205,28 +205,25 @@ def handle_message():
                                     greeting(sender_id, message_text, doc)
                                     user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' :chatState})
                                     return ''
-                    #         if message_text.find('สวัสดี') != -1 or message_text.find('ทักทาย') != -1:
-                    #             greeting(sender_id, message_text, doc)
-                    #              user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' :chatState})
-                    #         elif message_text.find('ค้นหา') != -1 or message_text.find('ต้องการให้ช่วย') != -1 or message_text.find('ค้นหาใหม่') != -1:
-                    #             searchProject(sender_id, message_text,doc)
-                    #         elif doc['chatState'] == 1:
-                    #             searchProject(sender_id,message_text,doc)
-                    #         elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง') != -1:
-                    #             guideline(sender_id, message_text)
-                    #         elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and (message_text.find('ป่วย') != -1 or message_text.find('อาหาร') != -1):
-                    #             send_message(sender_id, 'ขณะนี้เหมียวเทใจยังไม่มีแนวทางรับเรื่องนี้ กรุณาติดต่อช่องทางอื่นๆก่อนนะ แต่ถ้ามีข่าวอัพเดทจะรีบแจ้งให้ทราบนะเมี๊ยว')
-                    #         else:
-                    #             send_message(sender_id,'ยังไม่เข้าใจอ่ะเมี๊ยว')
-                    #             user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
-                    # else:
-                    #     r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
-                    #     data = r.json()
-                    #     send_message(sender_id, 'สวัสดีคุณ '+data['first_name'])
-                    #     user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
-                    #     k = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
-                    #     for doc in k:
-                    #         greeting(sender_id, message_text,doc)
+                            if message_text.find('ค้นหา') != -1 or message_text.find('ต้องการให้ช่วย') != -1 or message_text.find('ค้นหาใหม่') != -1:
+                                searchProject(sender_id, message_text,doc)
+                            elif doc['chatState'] == 1:
+                                searchProject(sender_id,message_text,doc)
+                            elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง') != -1:
+                                guideline(sender_id, message_text)
+                            elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and (message_text.find('ป่วย') != -1 or message_text.find('อาหาร') != -1):
+                                send_message(sender_id, 'ขณะนี้เหมียวเทใจยังไม่มีแนวทางรับเรื่องนี้ กรุณาติดต่อช่องทางอื่นๆก่อนนะ แต่ถ้ามีข่าวอัพเดทจะรีบแจ้งให้ทราบนะเมี๊ยว')
+                            else:
+                                send_message(sender_id,'ยังไม่เข้าใจอ่ะเมี๊ยว')
+                                user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
+                    else:
+                        r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
+                        data = r.json()
+                        send_message(sender_id, 'สวัสดีคุณ '+data['first_name'])
+                        user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
+                        k = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
+                        for doc in k:
+                            greeting(sender_id, message_text,doc)
     return ''
 
 def sendProjectCard(result, sender_id):
