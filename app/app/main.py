@@ -34,7 +34,7 @@ def search(sender_id):
 	print(r.json())
 	return data['first_name']
 
-@app.route('/tadkaam/<text>')
+@app.route('/tadkaam/<txt>')
 def isThai(chr):
     cVal = ord(chr)
     if(cVal >= 3584 and cVal <= 3711):
