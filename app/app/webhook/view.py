@@ -201,7 +201,7 @@ def handle_message():
                         for doc in u:
                             words = tadkaam(message_text)
                             for word in words:
-                                if word in greeting:
+                                if word in greeting_dialog:
                                     greeting(sender_id, message_text, doc)
                                     user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' :chatState})
                                     return ''
