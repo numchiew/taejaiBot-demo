@@ -4,6 +4,7 @@ from pymongo import MongoClient
 import redis
 import requests
 import datetime
+import deepcut
 
 from .config import develop as default_config
 
@@ -32,6 +33,11 @@ def search(sender_id):
 	data = r.json()
 	print(r.json())
 	return data['first_name']
+
+@app.route('/deepcut/<text>')
+def tadkaam(text):
+    kaam = deepcut.tokenize(text)
+    return jsonify(kaam)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
