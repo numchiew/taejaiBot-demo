@@ -323,7 +323,8 @@ def tadkaam(txt):
             lastPos = currentPos
     except StopIteration:
         pass
-    return retTxt
+    words = retTxt.split('|')
+    return words
 
 
 
