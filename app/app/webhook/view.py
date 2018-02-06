@@ -219,7 +219,6 @@ def handle_message():
                     else:
                         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
                         data = r.json()
-                        send_message(sender_id, 'สวัสดีคุณ '+data['first_name'])
                         user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
                         k = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
                         for doc in k:
