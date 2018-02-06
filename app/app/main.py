@@ -50,7 +50,6 @@ def warp(txt):
             lastPos = currentPos
     except StopIteration:
         pass
-    print(retTxt)
     return retTxt
 
 if __name__ == "__main__":

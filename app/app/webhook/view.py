@@ -4,13 +4,17 @@ import json
 from pymongo import MongoClient
 from ..config import develop as default_config
 from datetime import datetime
+import PyICU
+import random
 
 webhook_blueprint = Blueprint('webhook', __name__)
 mongo = MongoClient('mongodb://db:27017')
 
 user = mongo.db.users
 
-
+greeting_dialog = ['สวัสดี','หวัดดี','ทักทาย','Hello','Greeting','ไง','hi']
+greeting_ans_dialog_first = ['เมี๊ยว ยินดีที่ได้รู้จักนะคุณ ', 'เมี๊ยว สวัสดีคุณ ', 'เมี๊ยว ดีใจจังที่คุณ ']
+greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
 
 def send_message(sender_id, message_text):
     r = requests.post(
@@ -114,7 +118,8 @@ def guideline(sender_id, message_text):
 
 def greeting(sender_id, message_text, doc):
 
-    text = 'สวัสดีคุณ'+doc['sender_name']+' เหมียวสามารถช่วยคุณหาโครงการในเทใจได้นะ'
+    ranNum = random.randrange(len(greeting_ans_dialog_first))
+    text = greeting_ans_dialog_first[ranNum]+doc['sender_name']+ greeting_ans_dialog_end[ranNum]
 
     messageData = {
         'attachment':{
@@ -194,28 +199,34 @@ def handle_message():
                     u = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
                     if u.count() > 0:
                         for doc in u:
-                            if message_text.find('สวัสดี') != -1 or message_text.find('ทักทาย') != -1:
-                                greeting(sender_id, message_text, doc)
-                                user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
-                            elif message_text.find('ค้นหา') != -1 or message_text.find('ต้องการให้ช่วย') != -1 or message_text.find('ค้นหาใหม่') != -1:
-                                searchProject(sender_id, message_text,doc)
-                            elif doc['chatState'] == 1:
-                                searchProject(sender_id,message_text,doc)
-                            elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง') != -1:
-                                guideline(sender_id, message_text)
-                            elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and (message_text.find('ป่วย') != -1 or message_text.find('อาหาร') != -1):
-                                send_message(sender_id, 'ขณะนี้เหมียวเทใจยังไม่มีแนวทางรับเรื่องนี้ กรุณาติดต่อช่องทางอื่นๆก่อนนะ แต่ถ้ามีข่าวอัพเดทจะรีบแจ้งให้ทราบนะเมี๊ยว')
-                            else:
-                                send_message(sender_id,'ยังไม่เข้าใจอ่ะเมี๊ยว')
-                                user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
-                    else:
-                        r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
-                        data = r.json()
-                        send_message(sender_id, 'สวัสดีคุณ '+data['first_name'])
-                        user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
-                        k = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
-                        for doc in k:
-                            greeting(sender_id, message_text,doc)
+                            words = tadkaam(message_text)
+                            for word in words:
+                                if word in greeting:
+                                    greeting(sender_id, message_text, doc)
+                                    user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' :chatState})
+                                    return ''
+                    #         if message_text.find('สวัสดี') != -1 or message_text.find('ทักทาย') != -1:
+                    #             greeting(sender_id, message_text, doc)
+                    #              user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' :chatState})
+                    #         elif message_text.find('ค้นหา') != -1 or message_text.find('ต้องการให้ช่วย') != -1 or message_text.find('ค้นหาใหม่') != -1:
+                    #             searchProject(sender_id, message_text,doc)
+                    #         elif doc['chatState'] == 1:
+                    #             searchProject(sender_id,message_text,doc)
+                    #         elif message_text.find('ช่วยเหลือ') != -1 or message_text.find('ทำไรได้บ้าง') != -1:
+                    #             guideline(sender_id, message_text)
+                    #         elif (message_text.find('หมา') != -1 or message_text.find('แมว') != -1) and (message_text.find('ป่วย') != -1 or message_text.find('อาหาร') != -1):
+                    #             send_message(sender_id, 'ขณะนี้เหมียวเทใจยังไม่มีแนวทางรับเรื่องนี้ กรุณาติดต่อช่องทางอื่นๆก่อนนะ แต่ถ้ามีข่าวอัพเดทจะรีบแจ้งให้ทราบนะเมี๊ยว')
+                    #         else:
+                    #             send_message(sender_id,'ยังไม่เข้าใจอ่ะเมี๊ยว')
+                    #             user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
+                    # else:
+                    #     r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
+                    #     data = r.json()
+                    #     send_message(sender_id, 'สวัสดีคุณ '+data['first_name'])
+                    #     user.insert({'sender_id' : sender_id, 'sender_name' : data['first_name'], 'chatState' : 0})
+                    #     k = user.find({'sender_id' : sender_id}).sort("_id",-1).limit(1)
+                    #     for doc in k:
+                    #         greeting(sender_id, message_text,doc)
     return ''
 
 def sendProjectCard(result, sender_id):
@@ -298,6 +309,21 @@ def searchProject(sender_id, message_text,doc):
         user.insert({'sender_id' : sender_id,'sender_name':doc['sender_name'] ,'message_text' : message_text, 'chatState' : chatState})
     return
 
+def tadkaam(txt):
+    bd = PyICU.BreakIterator.createWordInstance(PyICU.Locale("th"))
+    bd.setText(txt)
+    lastPos = bd.first()
+    retTxt = ""
+    try:
+        while(1):
+            currentPos = next(bd)
+            retTxt += txt[lastPos:currentPos]
+            if(currentPos < len(txt)):
+                retTxt += "|"
+            lastPos = currentPos
+    except StopIteration:
+        pass
+    return retTxt
 
 
 
