@@ -35,11 +35,7 @@ def search(sender_id):
 	return data['first_name']
 
 @app.route('/tadkaam/<txt>')
-def isThai(chr):
-    cVal = ord(chr)
-    if(cVal >= 3584 and cVal <= 3711):
-        return True
-    return False
+
 def warp(txt):
     bd = PyICU.BreakIterator.createWordInstance(PyICU.Locale("th"))
     bd.setText(txt)
@@ -49,10 +45,8 @@ def warp(txt):
         while(1):
             currentPos = next(bd)
             retTxt += txt[lastPos:currentPos]
-            if(isThai(txt[currentPos-1])):
-                if(currentPos < len(txt)):
-                    if(isThai(txt[currentPos])):
-                        retTxt += "|"
+            if(currentPos < len(txt)):
+                retTxt += "|"
             lastPos = currentPos
     except StopIteration:
         pass
