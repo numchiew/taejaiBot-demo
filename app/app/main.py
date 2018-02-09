@@ -66,7 +66,7 @@ def findProjectName():
     taejai = mongo.db.taejai
     searchResult = taejai.find({})
     for doc in searchResult:
-        res.append(doc)
+        res.append({"name":doc["name"]})
     return {"project" : res}
 
 if __name__ == "__main__":
