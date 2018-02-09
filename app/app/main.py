@@ -70,7 +70,7 @@ def findProjectName():
     searchResult = taejai.find({})
     for doc in searchResult:
         res.append({"name":doc["name"]})
-        queryj += {"name":doc["name"]},
+        queryj += "{\"name\":"+ (doc["name"]) +"]},"
 
     print(res)
     data = json.dumps({"taejai":queryj})
@@ -84,7 +84,7 @@ def findId():
     searchResult = taejai.find({})
     for doc in searchResult:
         res.append({"name":doc["id"]})
-        queryj += "{\"name\":"+ doc["id"] +"]},"
+        queryj += "{\"name\":"+ str(doc["id"]) +"]},"
 
     print(res)
     data = json.dumps({"taejai":queryj})
