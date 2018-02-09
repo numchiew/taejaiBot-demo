@@ -66,9 +66,8 @@ def predict(txt):
 def findProjectName():
     res = []
     taejai = mongo.db.taejai
-    searchResult = taejai.find({}).limit(3)
+    searchResult = taejai.find({})
     for doc in searchResult:
-        print(doc['name'])
         res.append({"name":doc["name"]})
 
     print(res)
