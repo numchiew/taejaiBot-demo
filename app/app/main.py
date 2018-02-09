@@ -56,10 +56,18 @@ def warp(txt):
 def predict(txt):
     a = ''
     result = function.get_result(txt)
-    print("=======================  " ,result)
     for res in result:
         a += res
     return a
+
+@app.route('/findName')
+def findProjectName():
+    res = []
+    taejai = mongo.taejai
+    searchResult = taejai.find({}, {"name":1,"_id":0})
+    for doc in searchResult:
+        res.append(doc)
+    return {"project" : res}
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
