@@ -54,8 +54,12 @@ def warp(txt):
     return retTxt
 @app.route('/predict/<txt>')
 def predict(txt):
+    a = ''
     result = function.get_result(txt)
-    return result
+    print("=======================  " ,result)
+    for res in result:
+        a += res
+    return a
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
