@@ -72,13 +72,13 @@ def build_model():
     model.fit(x_data, y_data)
     model.score(x_data, y_data)
 
-    pickle.dump(scaler, open(default_config.BASE_DIR + '/data/scaler.p', 'wb'))
-    joblib.dump(model, default_config.BASE_DIR + '/data/current_model.pkl')
+    pickle.dump(scaler, open(default_config.BASE_DIR + '/brain/scaler.p', 'wb'))
+    joblib.dump(model, default_config.BASE_DIR + '/brain/current_model.pkl')
 
 
 def get_result(messages):
-    scaler = pickle.load(open(default_config.BASE_DIR + '/data/scaler.p', 'rb'))
-    model = joblib.load(default_config.BASE_DIR + '/data/current_model.pkl')
+    scaler = pickle.load(open(default_config.BASE_DIR + '/brain/scaler.p', 'rb'))
+    model = joblib.load(default_config.BASE_DIR + '/brain/current_model.pkl')
 
     test_data = [get_feature([(messages, 1)])]
     x_test = pd.DataFrame(data=test_data)[features]
