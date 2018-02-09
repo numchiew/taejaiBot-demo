@@ -63,7 +63,7 @@ def predict(txt):
 @app.route('/findName')
 def findProjectName():
     res = []
-    taejai = mongo.taejai
+    taejai = mongo.db.taejai
     searchResult = taejai.find({})
     for doc in searchResult:
         res.append(doc)
