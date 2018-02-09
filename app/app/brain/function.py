@@ -84,5 +84,5 @@ def get_result(messages):
     x_test = pd.DataFrame(data=test_data)[features]
     x_test = scaler.transform(x_test)
 
-    predicted = model.predict(x_test)
+    predicted = model.predict.proba(x_test)
     return predicted
