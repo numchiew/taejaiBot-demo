@@ -3,18 +3,28 @@ import pandas as pd
 import pickle
 from sklearn.externals import joblib
 from sklearn import preprocessing
+import sys
+sys.path.append("..")
 
 from ..config import develop as default_config
 
 
-features = '''
-สวัสดี
+
+features = '''สวัสดี
 อะไร
 ยังไง
 เมื่อไหร่
 บาย
-'''
+โครงการ
+ค้นหา
+ขอบคุณ
+หวัดดี
+ขอบคุณค่า
+สวัสดีค่ะ
+สวัสดีครับ
+มีโครงการอะไรบ้าง'''
 
+features = features.split('\n')
 
 def get_feature(messages):
     features_result = {}
@@ -37,16 +47,16 @@ def get_feature(messages):
     features_result['feature_not_found'] = 1 if features_count == 0 else 0
     return features_result
 
-
+ # /Users/matus/Desktop/taejaiBot-demo/app/app/data/data.csv
 def build_model():
-
-    data = []
     training = pd.read_csv(default_config.BASE_DIR + '/data/data.csv')
+    data = []
+    # training = pd.read_csv('/Users/matus/Desktop/taejaiBot-demo/app/app/data/data.csv')
 
-    for messages in training:
-        features_result = get_feature([
-            (messages, 1),
-        ])
+    for i in range(len(training)):
+        messages = training.get_value(i, 'description')
+        features_result = get_feature([(messages, 1),])
+        features_result['class'] = training.get_value(i, 'class')
         data.append(features_result)
 
     df = pd.DataFrame(data=data)
@@ -68,13 +78,11 @@ def build_model():
 
 def get_result(messages):
     scaler = pickle.load(open(default_config.BASE_DIR + '/data/scaler.p', 'rb'))
-    pca = pickle.load(open(default_config.BASE_DIR + '/data/pca.p', 'rb'))
     model = joblib.load(default_config.BASE_DIR + '/data/current_model.pkl')
 
     test_data = [get_feature([(messages, 1)])]
     x_test = pd.DataFrame(data=test_data)[features]
     x_test = scaler.transform(x_test)
-    x_test = pca.transform(x_test)
 
     predicted = model.predict(x_test)
     return predicted
