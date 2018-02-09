@@ -68,7 +68,7 @@ def findProjectName():
     searchResult = taejai.find({}).limit(3)
     for doc in searchResult:
         print(doc['name'])
-        res.append({"name":doc["name"]})
+        res.append({"name":str(doc["name"])})
 
     print(res)
     return jsonify({'name':res})
