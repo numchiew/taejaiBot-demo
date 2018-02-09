@@ -84,7 +84,7 @@ def findId():
     searchResult = taejai.find({})
     for doc in searchResult:
         res.append({"name":doc["id"]})
-        queryj += {"name":doc["id"]},
+        queryj += "{\"name\":doc[\"id\"]},"
 
     print(res)
     data = json.dumps({"taejai":queryj})
