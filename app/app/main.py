@@ -5,6 +5,7 @@ import redis
 import requests
 import datetime
 import PyICU
+import json
 
 from .config import develop as default_config
 from .brain import function
@@ -71,8 +72,8 @@ def findProjectName():
         res.append({"name":str(doc["name"])})
 
     print(res)
-    data = {"taejai":res}
-    return jsonify(data)
+    data = json.dumps({"taejai":res})
+    return data
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
