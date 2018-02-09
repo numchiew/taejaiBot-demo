@@ -57,9 +57,9 @@ def predict(txt):
     a = ''
     result = function.get_result(txt)
     print(result, " =========")
-    for res in result:
-        a += res
-    return a
+    # for res in result:
+    #     a += res
+    return result
 
 @app.route('/findName')
 def findProjectName():
