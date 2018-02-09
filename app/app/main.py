@@ -70,8 +70,8 @@ def findProjectName():
         print(doc['name'])
         res.append({"name":doc["name"]})
 
-    # print
-    return res
+    print(res)
+    return jsonify({'name':res})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
