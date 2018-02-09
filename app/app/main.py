@@ -67,7 +67,7 @@ def findProjectName():
     searchResult = taejai.find({})
     for doc in searchResult:
         res.append({"name":doc["name"]})
-    return res
+    return jsonify(res)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
