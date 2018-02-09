@@ -65,13 +65,29 @@ def predict(txt):
 @app.route('/findName')
 def findProjectName():
     res = []
+    queryj = ""
     taejai = mongo.db.taejai
     searchResult = taejai.find({})
     for doc in searchResult:
         res.append({"name":doc["name"]})
+        queryj += {"name":doc["name"]},
 
     print(res)
-    data = json.dumps({"taejai":res})
+    data = json.dumps({"taejai":queryj})
+    return data
+
+@app.route('/findId')
+def findId():
+    res = []
+    queryj = ""
+    taejai = mongo.db.taejai
+    searchResult = taejai.find({})
+    for doc in searchResult:
+        res.append({"name":doc["id"]})
+        queryj += {"name":doc["id"]},
+
+    print(res)
+    data = json.dumps({"taejai":queryj})
     return data
 
 if __name__ == "__main__":
