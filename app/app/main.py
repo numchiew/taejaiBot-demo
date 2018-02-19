@@ -59,7 +59,7 @@ def predict(txt):
     result = function.get_result(txt)
     print(result, " =========")
     for res in result:
-        a += res
+        # a += res
         b.append(res)
     return b
 
