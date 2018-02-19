@@ -61,8 +61,8 @@ def predict(txt):
     for res in result:
         # a += res
         print(res)
-        print(list(res), " dwadaadada")
-        return res
+        k = list(res)
+        return jsonify({"propability" : k})
     # print(b)
     # return jsonify({"list" : b})
 
