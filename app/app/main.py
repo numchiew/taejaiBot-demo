@@ -61,7 +61,7 @@ def predict(txt):
     for res in result:
         # a += res
         print(res)
-        return {"test" : res}
+        return res
     # print(b)
     # return jsonify({"list" : b})
 
