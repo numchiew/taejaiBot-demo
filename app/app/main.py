@@ -60,6 +60,7 @@ def predict(txt):
     print(result, " =========")
     for res in result:
         # a += res
+        print(res)
         b.append(res)
     print(b)
     return jsonify({"list" : b})
