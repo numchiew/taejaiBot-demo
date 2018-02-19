@@ -55,6 +55,7 @@ def warp(txt):
 @app.route('/predict/<txt>')
 def predict(txt):
     result = function.get_result(txt)
+    print(result)
     return jsonify(result)
 
 @app.route('/findName')
