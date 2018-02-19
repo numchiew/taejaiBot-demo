@@ -62,9 +62,10 @@ def predict(txt):
         # a += res
         print(res, "====This is RES====")
         k = list(res)
-        return jsonify({"propability" : k})
+        b.append(k)
+        print(k)
     # print(b)
-    # return jsonify({"list" : b})
+    return jsonify({"list" : b})
 
 @app.route('/findName')
 def findProjectName():
