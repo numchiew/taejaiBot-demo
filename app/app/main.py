@@ -54,9 +54,12 @@ def warp(txt):
     return retTxt
 @app.route('/predict/<txt>')
 def predict(txt):
+    a = ''
     result = function.get_result(txt)
-    print(result)
-    return result
+    print(result, " =========")
+    for res in result:
+        a += res
+    return a
 
 @app.route('/findName')
 def findProjectName():
