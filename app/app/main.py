@@ -61,7 +61,8 @@ def predict(txt):
     for res in result:
         # a += res
         b.append(res)
-    return b
+    print(b)
+    return jsonify({"list" : b})
 
 @app.route('/findName')
 def findProjectName():
