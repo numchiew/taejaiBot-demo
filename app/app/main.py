@@ -57,10 +57,10 @@ def predict(txt):
     a = ''
     b = []
     result = function.get_result(txt)
-    print(result, " =========")
+    print(result, " ====This is result=====")
     for res in result:
         # a += res
-        print(res)
+        print(res, "====This is RES====")
         k = list(res)
         return jsonify({"propability" : k})
     # print(b)
