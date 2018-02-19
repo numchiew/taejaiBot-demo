@@ -62,7 +62,7 @@ def predict(txt):
         # a += res
         print(res, "====This is RES====")
         k = list(res)
-        return k
+        return jsonify({"list" : k})
     # print(b)
 
 @app.route('/findName')
