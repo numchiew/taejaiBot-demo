@@ -37,7 +37,6 @@ def search(sender_id):
 	return data['first_name']
 
 @app.route('/tadkaam/<txt>')
-
 def warp(txt):
     bd = PyICU.BreakIterator.createWordInstance(PyICU.Locale("th"))
     bd.setText(txt)
@@ -55,11 +54,7 @@ def warp(txt):
     return retTxt
 @app.route('/predict/<txt>')
 def predict(txt):
-    a = ''
     result = function.get_result(txt)
-    print(result, " =========")
-    # for res in result:
-    #     a += res
     return jsonify(result)
 
 @app.route('/findName')
