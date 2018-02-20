@@ -88,7 +88,7 @@ def getProject():
     taejai = mongo.db.taejai
     result = taejai.find({ 'end_date' : {'$gte': date} })
     for res in result:
-        data.append(res)
+        data.append({"id" : res["id"],"name" : res["name"]})
     print(data)
     return jsonify({"data" : data})
 
