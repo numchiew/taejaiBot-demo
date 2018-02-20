@@ -6,6 +6,7 @@ import requests
 import datetime
 import PyICU
 import json
+from datetime import datetime
 
 from .config import develop as default_config
 from .brain import function
@@ -78,6 +79,18 @@ def findProjectName():
     print(res)
     data = json.dumps({"taejai":queryj})
     return data
+
+@app.route('/getProject')
+def getProject():
+    data = []
+    a = str(datetime.now())
+    date = a[0:10]
+    taejai = mongo.db.taejai
+    result = taejai.find({ 'end_date' : {'$gte': date} })
+    for res in result:
+        data.append(res)
+    print(data)
+    return jsonify({"data" : data})
 
 @app.route('/findId')
 def findId():
