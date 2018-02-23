@@ -60,7 +60,7 @@ def predict(txt):
     result = function.get_result(txt)
     for res in result:
         print(res)
-        a += res
+        a += str(res)
     return a
     # for res in result:
     #     # a += res
