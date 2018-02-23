@@ -297,6 +297,7 @@ def searchProject(sender_id, message_text,doc):
         date = a[0:10]
         taejai = mongo.db.taejai
         predict = predictProject(message_text)
+        send_message(predict)
         result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
             resendPostBack(sender_id, 'เหมียว ลองหาแล้วแต่ไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
@@ -325,9 +326,10 @@ def tadkaam(txt):
     return words
 
 def predictProject(txt):
-    k = []
+    k = ''
     result = function.get_result(txt)
-    print(result)
-    return result
+    for res in result:
+        k += str(res)
+    return k
 
 
