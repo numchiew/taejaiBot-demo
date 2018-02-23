@@ -6,6 +6,7 @@ from ..config import develop as default_config
 from datetime import datetime
 import PyICU
 import random
+from ..brain import function as function
 
 webhook_blueprint = Blueprint('webhook', __name__)
 mongo = MongoClient('mongodb://db:27017')
@@ -295,6 +296,7 @@ def searchProject(sender_id, message_text,doc):
         a = str(datetime.now())
         date = a[0:10]
         taejai = mongo.db.taejai
+        predict = predictProject(message_text)
         result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
             resendPostBack(sender_id, 'เหมียว ลองหาแล้วแต่ไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
@@ -321,6 +323,14 @@ def tadkaam(txt):
         pass
     words = retTxt.split('|')
     return words
+
+def predictProject(txt):
+    a = ''
+    result = function.get_result(txt)
+    for res in result:
+        a += res
+    send_message(a)
+    return a
 
 
 
