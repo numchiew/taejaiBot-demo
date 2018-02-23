@@ -58,9 +58,9 @@ def predict(txt):
     a = ''
     b = []
     result = function.get_result(txt)
-    k = list(result)
-    print(result, " ====This is result=====")
-    return k[0]
+    for res in result:
+        print(res)
+    return 'ok'
     # for res in result:
     #     # a += res
     #     print(res, "====This is RES====")
