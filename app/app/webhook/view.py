@@ -297,7 +297,7 @@ def searchProject(sender_id, message_text,doc):
         date = a[0:10]
         taejai = mongo.db.taejai
         predict = predictProject(message_text)
-        send_message(predict)
+        send_message(sender_id, predict)
         result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
             resendPostBack(sender_id, 'เหมียว ลองหาแล้วแต่ไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
