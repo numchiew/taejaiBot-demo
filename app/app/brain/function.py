@@ -9,20 +9,24 @@ sys.path.append("..")
 from ..config import develop as default_config
 
 
+features = ''''''
+# features = '''สวัสดี
+# อะไร
+# ยังไง
+# เมื่อไหร่
+# บาย
+# โครงการ
+# ค้นหา
+# ขอบคุณ
+# หวัดดี
+# ขอบคุณค่า
+# สวัสดีค่ะ
+# สวัสดีครับ
+# มีโครงการอะไรบ้าง'''
 
-features = '''สวัสดี
-อะไร
-ยังไง
-เมื่อไหร่
-บาย
-โครงการ
-ค้นหา
-ขอบคุณ
-หวัดดี
-ขอบคุณค่า
-สวัสดีค่ะ
-สวัสดีครับ
-มีโครงการอะไรบ้าง'''
+with open('','r') as f:
+    for line in f:
+        features += line
 
 features = features.split('\n')
 
