@@ -299,7 +299,8 @@ def searchProject(sender_id, message_text,doc):
         predict = predictProject(message_text)
         send_message(sender_id, predict)
         result = taejai.find({'id' : predict})
-        print(result)
+        for res in result:
+            print(res)
         # result = taejai.find({'name' : {'$regex': message_text, '$options' : 'i'}, 'end_date' : {'$gte': date} }).limit(3)
         if result.count() <= 0:
             resendPostBack(sender_id, 'เหมียว ลองหาแล้วแต่ไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ')
