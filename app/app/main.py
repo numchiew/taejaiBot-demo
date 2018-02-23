@@ -59,11 +59,12 @@ def predict(txt):
     b = []
     result = function.get_result(txt)
     print(result, " ====This is result=====")
-    for res in result:
-        # a += res
-        print(res, "====This is RES====")
-        k = list(res)
-        return jsonify({"list" : k})
+    return result
+    # for res in result:
+    #     # a += res
+    #     print(res, "====This is RES====")
+    #     k = list(res)
+    #     return jsonify({"list" : k})
     # print(b)
 
 @app.route('/findName')

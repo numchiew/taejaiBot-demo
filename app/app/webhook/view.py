@@ -327,9 +327,7 @@ def tadkaam(txt):
 def predictProject(txt):
     k = []
     result = function.get_result(txt)
-    for res in result:
-        k = list(res)
-        send_message(k[0])
-    return k[0]
+    print(result)
+    return result
 
 
