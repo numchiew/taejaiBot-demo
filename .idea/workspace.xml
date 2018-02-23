@@ -26,8 +26,8 @@
       <file leaf-file-name="view.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app/webhook/view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28702012">
-              <caret line="296" column="22" selection-start-line="296" selection-start-column="22" selection-end-line="296" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.2321755">
+              <caret line="294" column="9" selection-start-line="294" selection-start-column="9" selection-end-line="294" selection-end-column="9" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -731,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app/webhook/view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28702012">
-          <caret line="296" column="22" selection-start-line="296" selection-start-column="22" selection-end-line="296" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.2321755">
+          <caret line="294" column="9" selection-start-line="294" selection-start-column="9" selection-end-line="294" selection-end-column="9" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
