@@ -60,7 +60,8 @@ def predict(txt):
     result = function.get_result(txt)
     for res in result:
         print(res)
-    return 'ok'
+        a += res
+    return a
     # for res in result:
     #     # a += res
     #     print(res, "====This is RES====")
