@@ -24,7 +24,7 @@ features = ''''''
 # สวัสดีครับ
 # มีโครงการอะไรบ้าง'''
 
-with open('','r') as f:
+with open(default_config.BASE_DIR + '/brain/feature.txt','r') as f:
     for line in f:
         features += line
 
