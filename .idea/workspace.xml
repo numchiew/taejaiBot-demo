@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66d2efba-4d02-435f-852d-30fe5eb26642" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/config/Search.ipynb" afterPath="$PROJECT_DIR$/app/app/config/Search.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/webhook/view.py" afterPath="$PROJECT_DIR$/app/app/webhook/view.py" />
     </list>
     <ignored path="taejaiBot-demo.iws" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="view.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app/webhook/view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2321755">
-              <caret line="294" column="9" selection-start-line="294" selection-start-column="9" selection-end-line="294" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.369287">
+              <caret line="299" column="40" selection-start-line="299" selection-start-column="40" selection-end-line="299" selection-end-column="40" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -731,8 +732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app/webhook/view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2321755">
-          <caret line="294" column="9" selection-start-line="294" selection-start-column="9" selection-end-line="294" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.369287">
+          <caret line="299" column="40" selection-start-line="299" selection-start-column="40" selection-end-line="299" selection-end-column="40" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
