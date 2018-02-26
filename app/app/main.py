@@ -97,5 +97,15 @@ def findId():
 def es_info():
     return jsonify(es.info())
 
+@app.route('/index/<id>')
+def index_doc():
+    doc = {
+        'author' : 'Seq',
+        'text' : 'Elastic TEST indexing',
+    }
+    res = es.index(index="test-index", doc_type='tweet',id=id,body=doc)
+    print(res['created'])
+    es.indices.refresh(index="test-index")
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
