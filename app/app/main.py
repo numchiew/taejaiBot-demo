@@ -4,7 +4,6 @@ from pymongo import MongoClient
 import redis
 import requests
 import datetime
-import PyICU
 import json
 from datetime import datetime
 
@@ -37,22 +36,22 @@ def search(sender_id):
 	print(r.json())
 	return data['first_name']
 
-@app.route('/tadkaam/<txt>')
-def warp(txt):
-    bd = PyICU.BreakIterator.createWordInstance(PyICU.Locale("th"))
-    bd.setText(txt)
-    lastPos = bd.first()
-    retTxt = ""
-    try:
-        while(1):
-            currentPos = next(bd)
-            retTxt += txt[lastPos:currentPos]
-            if(currentPos < len(txt)):
-                retTxt += "|"
-            lastPos = currentPos
-    except StopIteration:
-        pass
-    return retTxt
+# @app.route('/tadkaam/<txt>')
+# def warp(txt):
+#     bd = PyICU.BreakIterator.createWordInstance(PyICU.Locale("th"))
+#     bd.setText(txt)
+#     lastPos = bd.first()
+#     retTxt = ""
+#     try:
+#         while(1):
+#             currentPos = next(bd)
+#             retTxt += txt[lastPos:currentPos]
+#             if(currentPos < len(txt)):
+#                 retTxt += "|"
+#             lastPos = currentPos
+#     except StopIteration:
+#         pass
+#     return retTxt
 @app.route('/predict/<txt>')
 def predict(txt):
     a = ''
