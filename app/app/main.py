@@ -104,7 +104,7 @@ def index_doc(id):
         'text' : 'Elastic TEST indexing',
     }
     res = es.index(index="test-index", doc_type='tweet',id=id,body=doc)
-    print(res['created'])
+    print(res)
     es.indices.refresh(index="test-index")
 
 if __name__ == "__main__":
