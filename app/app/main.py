@@ -98,7 +98,7 @@ def es_info():
     return jsonify(es.info())
 
 @app.route('/index/<id>')
-def index_doc():
+def index_doc(id):
     doc = {
         'author' : 'Seq',
         'text' : 'Elastic TEST indexing',
