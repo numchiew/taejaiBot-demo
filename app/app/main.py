@@ -6,7 +6,7 @@ import requests
 import datetime
 import json
 from datetime import datetime
-
+from elasticsearch import Elasticsearch
 from .config import develop as default_config
 from .brain import function
 
@@ -16,6 +16,7 @@ CORS(app)
 
 mongo = MongoClient('mongodb://db:27017')
 
+es = Elasticsearch('elasticseach://elasticSearch:9200')
 
 redis_client = redis.Redis(
     host=default_config.REDIS_HOST,
@@ -91,6 +92,10 @@ def findId():
     print(res)
     data = json.dumps({"taejai":queryj})
     return data
+
+@app.route('/info')
+def es_info():
+    return jsonify(es.info())
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
