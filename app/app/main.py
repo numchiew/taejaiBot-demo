@@ -31,27 +31,11 @@ def index():
 
 @app.route('/search/<sender_id>')
 def search(sender_id):
-	r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
-	data = r.json()
-	print(r.json())
-	return data['first_name']
+    r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
+    data = r.json()
+    print(r.json())
+    return data['first_name']
 
-# @app.route('/tadkaam/<txt>')
-# def warp(txt):
-#     bd = PyICU.BreakIterator.createWordInstance(PyICU.Locale("th"))
-#     bd.setText(txt)
-#     lastPos = bd.first()
-#     retTxt = ""
-#     try:
-#         while(1):
-#             currentPos = next(bd)
-#             retTxt += txt[lastPos:currentPos]
-#             if(currentPos < len(txt)):
-#                 retTxt += "|"
-#             lastPos = currentPos
-#     except StopIteration:
-#         pass
-#     return retTxt
 @app.route('/predict/<txt>')
 def predict(txt):
     a = ''
