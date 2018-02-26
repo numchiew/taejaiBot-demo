@@ -25,7 +25,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - esdata1:/usr/share/elasticsearch/data
+      - ./app:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
   db:
