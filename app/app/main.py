@@ -106,7 +106,7 @@ def index_doc(id):
     res = es.index(index="test-index", doc_type='tweet',id=id,body=doc)
     print(res)
     es.indices.refresh(index="test-index")
-    return res
+    return jsonify(res)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
