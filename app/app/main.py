@@ -58,7 +58,9 @@ def findProjectName():
     res = []
     queryj = ""
     taejai = mongo.db.taejai
-    searchResult = taejai.find({})
+    a = str(datetime.now())
+    date = a[0:10]
+    searchResult = taejai.find({'end_date' : {'$gte' : date}})
     for doc in searchResult:
         res.append({"name":doc["name"]})
         queryj += "{\"name\":"+ (doc["name"]) +"]},"
