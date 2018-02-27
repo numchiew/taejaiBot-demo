@@ -2,9 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66d2efba-4d02-435f-852d-30fe5eb26642" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app/brain/article" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/main.py" afterPath="$PROJECT_DIR$/app/app/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/0/index/segments_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/1/index/segments_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/2/index/segments_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/3/index/segments_3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/4/index/segments_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29.dii" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29.dim" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29.fdt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29.fdx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29.fnm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29.si" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29_Lucene50_0.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29_Lucene50_0.tim" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29_Lucene50_0.tip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29_Lucene70_0.dvd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_29_Lucene70_0.dvm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_2a.cfe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_2a.cfs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/index/_2a.si" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/translog/translog-3.tlog" afterPath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/translog/translog-3.tlog" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/0/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/0/translog/translog.ckp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/1/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/1/translog/translog.ckp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/2/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/2/translog/translog.ckp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/3/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/3/translog/translog.ckp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/4/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/CLzQv15bS5y1BoCPgd2-ow/4/translog/translog.ckp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/XDnLs6D4QiOYHbxVz7B1ZA/0/translog/translog.ckp" />
     </list>
     <ignored path="taejaiBot-demo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,8 +83,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30769232">
-              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.42307693">
+              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -781,8 +804,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30769232">
-          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.42307693">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
