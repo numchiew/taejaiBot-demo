@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 from elasticsearch import Elasticsearch
 from .config import develop as default_config
-from .brain import function
+from .brain import function, article
 
 app = Flask(__name__)
 app.secret_key = "my-secret"
@@ -16,7 +16,7 @@ CORS(app)
 
 mongo = MongoClient('mongodb://db:27017')
 
-es = Elasticsearch('elasticseach://elasticSearch:9200')
+
 
 redis_client = redis.Redis(
     host=default_config.REDIS_HOST,
@@ -24,6 +24,13 @@ redis_client = redis.Redis(
 
 from .webhook.view import webhook_blueprint as webhook_view
 app.register_blueprint(webhook_view, url_prefix='/webhook')
+
+@app.route('/search/<txt>')
+def search(txt):
+    result = article.search(txt)
+    for res in result:
+        print(result)
+    return result
 
 
 @app.route('/', methods=['GET'])
@@ -94,10 +101,6 @@ def findId():
     print(res)
     data = json.dumps({"taejai":queryj})
     return data
-
-@app.route('/info')
-def es_info():
-    return jsonify(es.info())
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
