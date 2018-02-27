@@ -28,7 +28,7 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 
 @app.route('/search/<txt>')
 def search(txt):
-    result = article.search(txt)
+    result = Article.search(txt)
     for res in result:
         print(result)
     return result
