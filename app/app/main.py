@@ -26,7 +26,7 @@ redis_client = redis.Redis(
 from .webhook.view import webhook_blueprint as webhook_view
 app.register_blueprint(webhook_view, url_prefix='/webhook')
 
-@app.route('/search/<txt>')
+@app.route('/searchProject/<txt>')
 def search(txt):
     result = Article.search(txt)
     for res in result:
