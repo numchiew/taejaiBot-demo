@@ -34,3 +34,7 @@ def search(txt):
     s = Search(using=client, index = "project").query("match", title = txt)
     response = s.execute()
     return response
+
+def connect():
+    client = connections.create_connection(host='128.199.70.132')
+    return client

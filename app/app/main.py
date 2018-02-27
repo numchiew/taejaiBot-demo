@@ -10,13 +10,14 @@ from elasticsearch import Elasticsearch
 from .config import develop as default_config
 from .brain import function
 from .brain.article import Article
+from elasticsearch_dsl.connections import connections
 
 app = Flask(__name__)
 app.secret_key = "my-secret"
 CORS(app)
 
 mongo = MongoClient('mongodb://db:27017')
-
+client = connections.create_connection(host='128.199.70.132')
 
 
 redis_client = redis.Redis(
