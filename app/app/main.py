@@ -8,7 +8,8 @@ import json
 from datetime import datetime
 from elasticsearch import Elasticsearch
 from .config import develop as default_config
-from .brain import function, article
+from .brain import function
+from .brain.article import Article
 
 app = Flask(__name__)
 app.secret_key = "my-secret"

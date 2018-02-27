@@ -2,41 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66d2efba-4d02-435f-852d-30fe5eb26642" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44.dii" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44.dim" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44.fdt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44.fdx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44.fnm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44_Lucene50_0.doc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44_Lucene50_0.tim" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44_Lucene50_0.tip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44_Lucene70_0.dvd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_44_Lucene70_0.dvm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_45.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_45.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_45.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_46.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_46.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_46.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_47.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_47.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_47.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_48.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_48.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_48.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4a.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4a.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4a.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4c.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4c.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4c.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4d.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4d.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4d.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4e.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4e.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/_4e.si" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app/brain/article.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app/brain/article" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog-1.tlog" afterPath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog-1.tlog" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog.ckp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/main.py" afterPath="$PROJECT_DIR$/app/app/main.py" />
@@ -95,20 +62,18 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.7115386">
-              <caret line="102" column="15" selection-start-line="102" selection-start-column="15" selection-end-line="102" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.28846154">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app/brain/article">
+      <file leaf-file-name="article.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app/brain/article.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -119,7 +84,7 @@
       <file leaf-file-name="function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app/brain/function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.703704">
+            <state vertical-scroll-proportion="-43.88889">
               <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -160,6 +125,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -174,6 +146,7 @@
         <option value="$PROJECT_DIR$/app/requirements.txt" />
         <option value="$PROJECT_DIR$/app/app/brain/article" />
         <option value="$PROJECT_DIR$/app/app/main.py" />
+        <option value="$PROJECT_DIR$/app/app/brain/article.py" />
       </list>
     </option>
   </component>
@@ -575,9 +548,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -613,9 +584,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -752,16 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app/brain/function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.703704">
-          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app/config/develop.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -804,10 +763,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app/brain/article">
+    <entry file="file://$PROJECT_DIR$/app/app/brain/function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-43.88889">
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app/brain/article.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
@@ -816,11 +785,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7115386">
-          <caret line="102" column="15" selection-start-line="102" selection-start-column="15" selection-end-line="102" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.28846154">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
