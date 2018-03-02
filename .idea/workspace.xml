@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66d2efba-4d02-435f-852d-30fe5eb26642" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/translog/translog.ckp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/translog/translog.ckp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/translog/translog.ckp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/translog/translog.ckp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/translog/translog.ckp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog.ckp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/main.py" afterPath="$PROJECT_DIR$/app/app/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gitignore" afterPath="$PROJECT_DIR$/gitignore" />
     </list>
     <ignored path="taejaiBot-demo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,14 +55,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.115384616">
-              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+            <state vertical-scroll-proportion="-3.8888888">
+              <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.027422303">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,6 +155,7 @@
         <option value="$PROJECT_DIR$/app/app/brain/article" />
         <option value="$PROJECT_DIR$/app/app/brain/article.py" />
         <option value="$PROJECT_DIR$/app/app/main.py" />
+        <option value="$PROJECT_DIR$/gitignore" />
       </list>
     </option>
   </component>
@@ -793,11 +798,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.115384616">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state vertical-scroll-proportion="-3.8888888">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.027422303">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
