@@ -47,8 +47,7 @@ def handle_intent():
     print(data['queryResult']['fulfillmentText'])
     # data['queryResult']['fulfillmentText'] = 'ดีจ้าาา ฟอร์ม มายเซอวิส'
     k = json.dumps({
-        "speech" : "test",
-        "text" : "tests"
+        "fulfillmentText" : "เฮลโหล้ว"
     })
     return k
 
