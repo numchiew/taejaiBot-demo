@@ -44,7 +44,7 @@ def index():
 def handle_intent():
     print('HOOK FROM GOOGLE')
     data = request.get_json()
-    print(data['QueryResult']['fullfillmentText'])
+    print(data['queryResult']['fulfillmentText'])
     data['queryResult']['fulfillmentText'] = 'ดีจ้าาา ฟอร์ม มายเซอวิส'
     return data
 
