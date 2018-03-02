@@ -47,14 +47,15 @@ def handle_intent():
     print(data)
 
     k = json.dumps({
-        "fulfillmentText" : 'สวัสดีจ้าาาา',
+        "fulfillmentText" : "TESTING",
         "fulfillmentMessages" : [{
-            "text" : {
-                "text": ['สวัสดีจ้าาา']
-            }
+            "text" : {"text" : ["TESTING"]}
         }]
     })
-    return jsonify(k)
+
+    print(k)
+
+    return k
 
 @app.route('/search/<sender_id>')
 def search(sender_id):
