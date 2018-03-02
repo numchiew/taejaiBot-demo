@@ -2,45 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66d2efba-4d02-435f-852d-30fe5eb26642" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/_state/global-24.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/_state/node-1.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/_state/state-0.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/index/segments_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/translog/translog-1.ckp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/translog/translog-1.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/translog/translog-2.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/_state/state-0.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/index/segments_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/translog/translog-1.ckp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/translog/translog-1.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/translog/translog-2.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/_state/state-0.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/index/segments_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/translog/translog-1.ckp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/translog/translog-1.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/translog/translog-2.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/_state/state-0.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/index/segments_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/translog/translog-1.ckp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/translog/translog-1.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/translog/translog-2.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/_state/state-0.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/index/segments_3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/translog/translog-1.ckp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/translog/translog-1.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/translog/translog-2.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/_state/state-3.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/_state/state-0.st" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/index/segments_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog-1.tlog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/_state/state-1.st" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/0/translog/translog.ckp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/1/translog/translog.ckp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/2/translog/translog.ckp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/3/translog/translog.ckp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/QXDTGonAQxuC-qlIg6ejVg/4/translog/translog.ckp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog.ckp" afterPath="$PROJECT_DIR$/app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog.ckp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/brain/article.py" afterPath="$PROJECT_DIR$/app/app/brain/article.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/main.py" afterPath="$PROJECT_DIR$/app/app/main.py" />
     </list>
     <ignored path="taejaiBot-demo.iws" />
@@ -97,8 +64,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6057692">
-              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.115384616">
+              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -826,8 +793,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6057692">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.115384616">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
