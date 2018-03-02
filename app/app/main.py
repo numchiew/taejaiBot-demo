@@ -44,9 +44,8 @@ def index():
 def handle_intent():
     print('HOOK FROM GOOGLE')
     data = request.get_json()
-    # print(data['queryResult']['fulfillmentText'])
-    # data['queryResult']['fulfillmentText'] = 'ดีจ้าาา ฟอร์ม มายเซอวิส'
     print(data)
+
     return jsonify(data)
 
 @app.route('/search/<sender_id>')
