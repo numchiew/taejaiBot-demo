@@ -44,15 +44,13 @@ def index():
 def handle_intent():
     print('HOOK FROM GOOGLE')
     data = request.get_json()
-    print(data)
-
-    k = json.dumps({
-        "fulfillmentText" : "TESTING",
-        "fulfillmentMessages" : [{
-            "text" : {"text" : ["TESTING"]}
-        }]
-    })
-
+    if data['intent']['displayName'] == 'ทักทาย':
+        k = json.dumps({
+            "fulfillmentText" : "สวัสดีเมี๊ยว",
+            "fulfillmentMessages" : [{
+                "text" : {"text" : ["สวัสดีเมี๊ยว"]}
+            }]
+        })
     print(k)
 
     return k
