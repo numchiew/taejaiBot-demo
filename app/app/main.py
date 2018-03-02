@@ -45,7 +45,7 @@ def handle_intent():
     print('HOOK FROM GOOGLE')
     data = request.get_json()
     print(data['QueryResult']['fullfillmentText'])
-    data['QueryResult']['fullfillmentText'] = 'ดีจ้าาา ฟอร์ม มายเซอวิส'
+    data['queryResult']['fulfillmentText'] = 'ดีจ้าาา ฟอร์ม มายเซอวิส'
     return data
 
 @app.route('/search/<sender_id>')
