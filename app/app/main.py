@@ -17,7 +17,7 @@ app.secret_key = "my-secret"
 CORS(app)
 
 mongo = MongoClient('mongodb://db:27017')
-client = connections.create_connection(host='128.199.70.132')
+Article.init()
 
 
 redis_client = redis.Redis(
@@ -27,12 +27,13 @@ redis_client = redis.Redis(
 from .webhook.view import webhook_blueprint as webhook_view
 app.register_blueprint(webhook_view, url_prefix='/webhook')
 
-@app.route('/searchProject/<txt>')
-def searchProject(txt):
-    result = Article.search(txt)
-    for res in result:
-        print(result)
-    return result
+# @app.route('/searchProject/<txt>')
+# def searchProject(txt):
+#
+#     result = Article.search(txt)
+#     for res in result:
+#         print(result)
+#     return result
 
 
 @app.route('/', methods=['GET'])
