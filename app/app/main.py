@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from pymongo import MongoClient
 import redis
@@ -39,6 +39,12 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 @app.route('/', methods=['GET'])
 def index():
     return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D ver"})
+
+@app.route('/botAI', methods=['POST'],strict_slashes=False)
+def handle_intent():
+    data = request.get_json()
+    print(data)
+    return 200
 
 @app.route('/search/<sender_id>')
 def search(sender_id):
