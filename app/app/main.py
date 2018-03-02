@@ -46,7 +46,7 @@ def handle_intent():
     data = request.get_json()
     print(data['queryResult']['fulfillmentText'])
     data['queryResult']['fulfillmentText'] = 'ดีจ้าาา ฟอร์ม มายเซอวิส'
-    return data
+    return jsonify(data)
 
 @app.route('/search/<sender_id>')
 def search(sender_id):
