@@ -65,7 +65,7 @@ def handle_intent():
     elif intent == 'ขอบคุณ':
         k = json.dumps({
             "fulfillmentMessages" : [{
-                "message": [
+                "message":
                   {
                     "buttons": [
                       {
@@ -79,7 +79,6 @@ def handle_intent():
                     "title": "Card Title",
                     "type": 1
                   }
-                ]
             }]
         })
     else:
