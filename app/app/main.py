@@ -65,20 +65,15 @@ def handle_intent():
     elif intent == 'ขอบคุณ':
         k = json.dumps({
             "fulfillmentMessages" : [{
-                "message":
-                  {
-                    "buttons": [
-                      {
-                        "postback": "Card Link URL or text",
-                        "text": "Card Link Title"
-                      }
-                    ],
-                    "imageUrl": "http://urltoimage.com",
-                    "platform": "facebook",
-                    "subtitle": "Card Subtitle",
-                    "title": "Card Title",
-                    "type": 1
-                  }
+                "platform" : "facebook",
+                "card":{
+                    "title" : "test",
+                    "subtitle" : "test2",
+                    "imageUri" : "google.com",
+                    "buttons" : [{
+                        "text" : "test3"
+                    }]
+                }
             }]
         })
     else:
