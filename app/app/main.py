@@ -76,6 +76,8 @@ def handle_intent():
                 "type" : 1
             }]
         })
+    else:
+        k = json.dumps({})
     print(k)
 
     return k
