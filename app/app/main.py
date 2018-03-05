@@ -41,7 +41,7 @@ def index():
 
 @app.route('/searchProject/<txt>',methods=['GET'])
 def searchProject(txt):
-    result = article.search(txt)
+    result = article.search(txt,client)
     list = []
     for hit in result:
         print(hit.title)
