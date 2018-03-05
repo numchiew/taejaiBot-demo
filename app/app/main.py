@@ -75,9 +75,9 @@ def handle_intent():
                 }
             }]
         })
-    # elif intent == 'search':
-    #     print(intent)
-    #     k = json.dumps({})
+    elif intent == 'search':
+        print(intent)
+        k = json.dumps({})
     else:
         k = json.dumps({})
     print(k)
