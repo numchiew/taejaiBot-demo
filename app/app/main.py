@@ -85,7 +85,7 @@ def handle_intent():
         })
     elif intent == 'search':
         text = data['queryResult']['queryText']
-        print(text)
+        print("=========",text,"==========")
         result = searchProjectName(text)
         print(result)
         print(intent)
