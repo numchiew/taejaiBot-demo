@@ -66,7 +66,6 @@ def handle_intent():
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
-                "type" : 1,
                 "card":{
                     "title" : "test",
                     "subtitle" : "test2",
