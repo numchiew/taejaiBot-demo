@@ -64,18 +64,21 @@ def handle_intent():
         })
     elif intent == 'ขอบคุณ':
         k = json.dumps({
-            "message" : [{
-                "buttons" : [{
-                    "postback" : "ค้นหาโครงการ",
-                    "text" : "ลองค้นหา"
-                    }
+            "messages": [
+              {
+                "buttons": [
+                  {
+                    "postback": "Card Link URL or text",
+                    "text": "Card Link Title"
+                  }
                 ],
-                "imageUrl" : "https://taejai.com/static/images/taejai/taejai-logo.svg",
-                "platform" : "facebook",
-                "subtitle" : "ทดสอบ",
-                "title" : "ทดดสอบ",
-                "type" : 1
-            }]
+                "imageUrl": "http://urltoimage.com",
+                "platform": "facebook",
+                "subtitle": "Card Subtitle",
+                "title": "Card Title",
+                "type": 1
+              }
+            ]
         })
     else:
         k = json.dumps({})
