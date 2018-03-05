@@ -18,6 +18,7 @@ CORS(app)
 
 mongo = MongoClient('mongodb://db:27017')
 client = connections.create_connection(host='128.199.70.132')
+print("================",client,"================")
 
 redis_client = redis.Redis(
     host=default_config.REDIS_HOST,
