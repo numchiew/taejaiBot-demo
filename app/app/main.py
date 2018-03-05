@@ -17,7 +17,7 @@ app.secret_key = "my-secret"
 CORS(app)
 
 mongo = MongoClient('mongodb://db:27017')
-article.Article.init()
+client = connections.create_connection(host='128.199.70.132')
 
 redis_client = redis.Redis(
     host=default_config.REDIS_HOST,

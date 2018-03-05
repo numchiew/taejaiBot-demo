@@ -4,7 +4,7 @@ from datetime import datetime
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
 
-client = connections.create_connection(host='128.199.70.132')
+# client = connections.create_connection(host='128.199.70.132')
 
 class Article(DocType):
     title = Text(analyzer='thai', fields={'raw': Keyword()})
@@ -30,7 +30,7 @@ def insertDoc(_id,title,tags,slug,end_date):
     result = article.save()
     return result
 
-def search(txt):
+def search(txt, client):
     s = Search(using=client, index="project").query("match", title = txt)
     response = s.execute()
     return response
