@@ -65,6 +65,8 @@ def handle_intent():
     elif intent == 'ขอบคุณ':
         k = json.dumps({
             "fulfillmentMessages" : [{
+                "message": [
+                  {
                     "buttons": [
                       {
                         "postback": "Card Link URL or text",
@@ -76,6 +78,8 @@ def handle_intent():
                     "subtitle": "Card Subtitle",
                     "title": "Card Title",
                     "type": 1
+                  }
+                ]
             }]
         })
     else:
