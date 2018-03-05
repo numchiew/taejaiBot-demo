@@ -51,13 +51,29 @@ def searchProject(txt):
 
 @app.route('/botAI', methods=['POST'],strict_slashes=False)
 def handle_intent():
-    print('HOOK FROM GOOGLE')
+    # print('HOOK FROM GOOGLE')
     data = request.get_json()
-    if data['queryResult​']['intent']['displayName'] == 'ทักทาย':
+    intent = data['queryResult']['intent']['displayName']
+    if intent == 'ทักทาย':
         k = json.dumps({
             "fulfillmentText" : "สวัสดีเมี๊ยว",
             "fulfillmentMessages" : [{
                 "text" : {"text" : ["สวัสดีเมี๊ยว"]}
+            }]
+        })
+    if intent == 'ขอบคุณ':
+        k = json.dumps({
+            "messages" : [{
+                "buttons" : [{
+                    "postback" : "ค้นหาโครงการ",
+                    "text" : "ลองค้นหา"
+                    }
+                ],
+                "imageUrl" : "https://taejai.com/static/images/taejai/taejai-logo.svg",
+                "platform" : "facebook",
+                "subtitle" : "ทดสอบ",
+                "title" : "ทดดสอบ",
+                "type" : 1
             }]
         })
     print(k)
