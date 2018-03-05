@@ -61,7 +61,7 @@ def handle_intent():
                 "text" : {"text" : ["สวัสดีเมี๊ยว"]}
             }]
         })
-    if intent == 'ขอบคุณ':
+    elif intent == 'ขอบคุณ':
         k = json.dumps({
             "messages" : [{
                 "buttons" : [{
