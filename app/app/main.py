@@ -54,6 +54,7 @@ def handle_intent():
     # print('HOOK FROM GOOGLE')
     data = request.get_json()
     intent = data['queryResult']['intent']['displayName']
+    print("===============",intent,"=================")
     if intent == 'ทักทาย':
         k = json.dumps({
             "fulfillmentText" : "สวัสดีเมี๊ยว",
