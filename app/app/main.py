@@ -50,13 +50,6 @@ def searchProject(txt):
     return jsonify(list)
 
 @app.route('/botAI', methods=['POST'],strict_slashes=False)
-def searchProjectName(text):
-    result = article.search(text,client)
-    list = []
-    for hit in result:
-        print(hit.title)
-        list.append({"title" : hit.title, "score" : hit.meta.score})
-    return list
 
 def handle_intent():
     # print('HOOK FROM GOOGLE')
@@ -84,6 +77,7 @@ def handle_intent():
             }]
         })
     elif intent == 'search':
+        print(data)
         text = data['queryResult']['queryText']
         print("=========",text,"==========")
         result = searchProjectName(text)
@@ -95,6 +89,14 @@ def handle_intent():
     print(k)
 
     return k
+
+def searchProjectName(text):
+    result = article.search(text,client)
+    list = []
+    for hit in result:
+        print(hit.title)
+        list.append({"title" : hit.title, "score" : hit.meta.score})
+    return list
 
 @app.route('/search/<sender_id>')
 def search(sender_id):
