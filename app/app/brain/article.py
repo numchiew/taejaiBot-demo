@@ -21,11 +21,6 @@ class Article(DocType):
         self.lines = len(self.body.split())
         return super(Article, self).save(** kwargs)
 
-    def search(txt):
-        s = Search(using=client, index = "project").query("match", title = txt)
-        response = s.execute()
-        return response
-
 def insertDoc(_id,title,tags,slug,end_date):
     Article.init()
     article = Article(meta={'id':_id}, title=title, tags=[tags])
@@ -35,5 +30,9 @@ def insertDoc(_id,title,tags,slug,end_date):
     result = article.save()
     return result
 
+def search(txt):
+    s = Search(using=client, index="project").query("match", title = txt)
+    response = s.execute()
+    return response
 
 

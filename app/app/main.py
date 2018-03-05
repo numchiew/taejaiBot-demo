@@ -9,7 +9,7 @@ from datetime import datetime
 from elasticsearch import Elasticsearch
 from .config import develop as default_config
 from .brain import function
-from .brain.article import Article
+from .brain import article
 from elasticsearch_dsl.connections import connections
 
 app = Flask(__name__)
@@ -17,8 +17,7 @@ app.secret_key = "my-secret"
 CORS(app)
 
 mongo = MongoClient('mongodb://db:27017')
-# Article.init()
-
+article.Article.init()
 
 redis_client = redis.Redis(
     host=default_config.REDIS_HOST,
@@ -40,11 +39,20 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 def index():
     return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D ver"})
 
+@app.route('/searchProject/<txt>',methods=['GET'])
+def searchProject(txt):
+    result = article.search(txt)
+    list = []
+    for hit in result:
+        print(hit.title)
+        list.append({"title" : hit.title, "score" : hit.meta.score})
+    return jsonify(list)
+
 @app.route('/botAI', methods=['POST'],strict_slashes=False)
 def handle_intent():
     print('HOOK FROM GOOGLE')
     data = request.get_json()
-    if data['queryResult']['intent']['displayName'] == 'ทักทาย':
+    if data['queryResult​']['intent']['displayName'] == 'ทักทาย':
         k = json.dumps({
             "fulfillmentText" : "สวัสดีเมี๊ยว",
             "fulfillmentMessages" : [{
