@@ -65,7 +65,7 @@ def handle_intent():
     elif intent == 'ขอบคุณ':
         k = json.dumps({
             "fulfillmentMessages" : [{
-                "platform" : "facebook",
+                "platform" : "Facebook",
                 "type" : 1,
                 "card":{
                     "title" : "test",
