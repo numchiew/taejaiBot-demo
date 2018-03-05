@@ -64,7 +64,7 @@ def handle_intent():
         })
     elif intent == 'ขอบคุณ':
         k = json.dumps({
-            "messages" : [{
+            "message" : [{
                 "buttons" : [{
                     "postback" : "ค้นหาโครงการ",
                     "text" : "ลองค้นหา"
