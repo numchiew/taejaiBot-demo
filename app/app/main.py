@@ -92,7 +92,6 @@ def handle_intent():
 
 def searchProjectName(text):
     result = article.search(text,client)
-    print(text,"=12312=312=3=1=2321=3=1")
     list = []
     for hit in result:
         print(hit.title)
