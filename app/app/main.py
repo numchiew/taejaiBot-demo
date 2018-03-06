@@ -82,7 +82,9 @@ def handle_intent():
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
-                "card" : card[0]
+                "card" : card[0],
+                "card" : card[1],
+                "card" : card[2]
             }]
         })
     else:
