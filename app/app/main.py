@@ -50,19 +50,18 @@ def searchProject(txt):
     return jsonify(list)
 
 @app.route('/botAI', methods=['POST'],strict_slashes=False)
-
 def handle_intent():
     # print('HOOK FROM GOOGLE')
     data = request.get_json()
     intent = data['queryResult']['intent']['displayName']
-    if intent == 'ทักทาย':
+    if intent == 'greeting':
         k = json.dumps({
             "fulfillmentText" : "สวัสดีเมี๊ยว",
             "fulfillmentMessages" : [{
                 "text" : {"text" : ["สวัสดีเมี๊ยว"]}
             }]
         })
-    elif intent == 'ขอบคุณ':
+    elif intent == 'thank':
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
@@ -79,11 +78,13 @@ def handle_intent():
     elif intent == 'search':
         print(data)
         text = data['queryResult']['queryText']
-        print("=========",text,"==========")
-        result = searchProjectName(text)
-        print(result)
-        print(intent)
-        k = json.dumps({})
+        card = searchProjectName(text)
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "card" : card
+            }]
+        })
     else:
         k = json.dumps({})
     print(k)
@@ -92,11 +93,10 @@ def handle_intent():
 
 def searchProjectName(text):
     result = article.search(text,client)
-    list = []
+    card = []
     for hit in result:
-        print(hit.title)
-        list.append({"title" : hit.title, "score" : hit.meta.score})
-    return list
+        card.append({"title" : hit.title, "subtitle" : hit.end_date, "imageUri" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"postback" : "https://taejai.com/th/d/" + hit['slug']}]})
+    return card
 
 @app.route('/search/<sender_id>')
 def search(sender_id):
