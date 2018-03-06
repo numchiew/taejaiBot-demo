@@ -65,14 +65,25 @@ def handle_intent():
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
-                "card":{
-                    "title" : "test",
-                    "subtitle" : "test2",
-                    "imageUri" : "google.com",
-                    "buttons" : [{
-                        "text" : "ลิ้ง",
-                        "postback" : "https://taejai.com/th/projects/all/"
-                    }]
+                "type" : "template",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "payload" : {
+                                "template_type" : "generic",
+                                "elements" : [{
+                                    "image_url" : "",
+                                    "title" : "test2",
+                                    "subtitle" : "testse",
+                                    "buttons" : [{
+                                        "title" : "web",
+                                        "type" : "web_url",
+                                        "url" : "https://taejai.com/th/projects/all/"
+                                    }]
+                                }]
+                            }
+                        }
+                    }
                 }
             }]
         })
