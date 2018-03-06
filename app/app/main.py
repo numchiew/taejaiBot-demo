@@ -69,26 +69,26 @@ def handle_intent():
                     "facebook": {
                       "attachment": {
                         "payload": {
-                          "elements": [
-                            {
-                              "title": "TEST1",
-                              "buttons": [
+                            "template_type": "generic",
+                            "elements": [
                                 {
-                                  "type": "web_url",
-                                  "url": "https://taejai.com/th/projects/all/",
-                                  "title": "เวปไซต์เท"
-                                },
-                                {
-                                  "payload": "ค้นห",
-                                  "type": "postback",
-                                  "title": "ต้องการให้ช"
+                                  "title": "TEST1",
+                                    "subtitle" : "tttt",
+                                    "image_url" : "",
+                                  "buttons": [
+                                    {
+                                      "type": "web_url",
+                                      "url": "https://taejai.com/th/projects/all/",
+                                      "title": "เวปไซต์เท"
+                                    },
+                                    {
+                                      "payload": "ค้นห",
+                                      "type": "postback",
+                                      "title": "ต้องการให้ช"
+                                    }
+                                  ]
                                 }
-                              ],
-                              "subtitle": "THIS_IS_PAGE_1",
-                              "image_url": ""
-                            }
-                          ],
-                          "template_type": "generic"
+                              ]
                         },
                         "type": "template"
                       }
@@ -103,7 +103,13 @@ def handle_intent():
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
-                "card" : card[0]
+                "payload" : {
+                    "facebook" : {
+                        "template_type" : "generic",
+                        "elements" : card
+                    },
+                    "type" : "template"
+                }
             }]
         })
     else:
@@ -116,7 +122,7 @@ def searchProjectName(text):
     result = article.search(text,client)
     card = []
     for hit in result:
-        card.append({"title" : hit.title, "subtitle" : hit.end_date, "imageUri" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"postback" : "https://taejai.com/th/d/" + hit['slug']}]})
+        card.append({"title" : hit.title, "subtitle" : hit.end_date, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'], "title" : "บริจาค"}]})
     print(card)
     return card
 
