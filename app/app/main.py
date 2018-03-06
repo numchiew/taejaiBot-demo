@@ -86,9 +86,6 @@ def handle_intent():
                 }
             }]
         })
-    elif intent == 'thank':
-        k = json.dumps({
-        })
     elif intent == 'search':
         print(data)
         text = data['queryResult']['queryText']
@@ -127,7 +124,7 @@ def searchProjectName(text):
     result = article.search(text,client)
     card = []
     for hit in result:
-        card.append({"title" : hit.title, "subtitle" : hit.end_date, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}]})
+        card.append({"title" : hit.title, "subtitle" : "หมดเขต "+hit.end_date + "\nเป้าหมาย " + hit.donation_limit, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}]})
     print(card)
     return card
 
