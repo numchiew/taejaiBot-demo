@@ -117,6 +117,13 @@ def handle_intent():
         print(data)
         text = data['queryResult']['queryText']
         card = searchProjectName(text)
+        if len(card) == 0:
+            k = json.dumps({
+                "fulfillmentMessages" : [{
+                    "platform" : "FACEBOOK",
+                    "text" : {"text" : ["เหมียว..หาไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ"]}
+                }]
+            })
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
