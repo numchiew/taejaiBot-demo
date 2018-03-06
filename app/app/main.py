@@ -11,6 +11,7 @@ from .config import develop as default_config
 from .brain import function
 from .brain import article
 from elasticsearch_dsl.connections import connections
+import random
 
 app = Flask(__name__)
 app.secret_key = "my-secret"
@@ -57,16 +58,33 @@ def handle_intent():
     intent = data['queryResult']['intent']['displayName']
     if intent == 'greeting':
         sender_id = data['originalDetectIntentRequest']['payload']['data']['sender']['id']
+        greeting_ans_dialog_first = ['เมี๊ยว ยินดีที่ได้รู้จักนะคุณ ', 'เมี๊ยว สวัสดีคุณ ', 'เมี๊ยว ดีใจจังที่คุณ ']
+        greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
+        r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
+        data = r.json()
+        ranNum = random.randrange(len(greeting_ans_dialog_first))
+        text = greeting_ans_dialog_first[ranNum]+data['first_name']+ greeting_ans_dialog_end[ranNum]
         k = json.dumps({
             "fulfillmentText" : "สวัสดีเมี๊ยว",
             "fulfillmentMessages" : [{
-                "text" : {"text" : ["สวัสดีเมี๊ยว" + sender_id]}
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : text,
+                                "buttons" : [{
+                                    "type" : "postback",
+                                    "title" : "ต้องการให้ช่วย",
+                                    "payload" : "ค้นหา"
+                                }]
+                            }
+                        }
+                    }
+                }
             }]
         })
-
-        greeting_ans_dialog_first = ['เมี๊ยว ยินดีที่ได้รู้จักนะคุณ ', 'เมี๊ยว สวัสดีคุณ ', 'เมี๊ยว ดีใจจังที่คุณ ']
-        greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
-        # r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
     elif intent == 'thank':
         k = json.dumps({
         })
