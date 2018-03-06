@@ -64,7 +64,6 @@ def handle_intent():
         data = r.json()
         ranNum = random.randrange(len(greeting_ans_dialog_first))
         text = greeting_ans_dialog_first[ranNum]+data['first_name']+ greeting_ans_dialog_end[ranNum]
-        print(text,"=dwa=daw=d=awd=aw")
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
@@ -79,6 +78,10 @@ def handle_intent():
                                     "type" : "postback",
                                     "title" : "ต้องการให้ช่วย",
                                     "payload" : "ค้นหา"
+                                },{
+                                    "type" : "web_url",
+                                    "title" : "สถานะใบเสร็จ",
+                                    "url" : "https://taejai.com/th/request-receipt/"
                                 }]
                             }
                         }
