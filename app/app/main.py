@@ -124,22 +124,23 @@ def handle_intent():
                     "text" : {"text" : ["เหมียว..หาไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ"]}
                 }]
             })
-        k = json.dumps({
-            "fulfillmentMessages" : [{
-                "platform" : "FACEBOOK",
-                "payload" : {
-                    "facebook" : {
-                        "attachment" : {
-                            "payload" : {
-                                "template_type" : "generic",
-                                "elements" : card
-                            },
-                            "type" : "template"
+        else:
+            k = json.dumps({
+                "fulfillmentMessages" : [{
+                    "platform" : "FACEBOOK",
+                    "payload" : {
+                        "facebook" : {
+                            "attachment" : {
+                                "payload" : {
+                                    "template_type" : "generic",
+                                    "elements" : card
+                                },
+                                "type" : "template"
+                            }
                         }
                     }
-                }
-            }]
-        })
+                }]
+            })
     else:
         k = json.dumps({})
     print(k)
