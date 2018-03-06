@@ -87,6 +87,23 @@ def handle_intent():
                                       "title": "ต้องการให้ช"
                                     }
                                   ]
+                                },
+                                {
+                                  "title": "TEST2",
+                                    "subtitle" : "tttt",
+                                    "image_url" : "",
+                                  "buttons": [
+                                    {
+                                      "type": "web_url",
+                                      "url": "https://taejai.com/th/projects/all/",
+                                      "title": "เวปไซต์เท"
+                                    },
+                                    {
+                                      "payload": "ค้นห",
+                                      "type": "postback",
+                                      "title": "ต้องการให้ช"
+                                    }
+                                  ]
                                 }
                               ]
                         },
