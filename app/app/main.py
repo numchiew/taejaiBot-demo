@@ -53,6 +53,7 @@ def searchProject(txt):
 def handle_intent():
     # print('HOOK FROM GOOGLE')
     data = request.get_json()
+    print(data)
     intent = data['queryResult']['intent']['displayName']
     if intent == 'greeting':
         k = json.dumps({
@@ -61,57 +62,11 @@ def handle_intent():
                 "text" : {"text" : ["สวัสดีเมี๊ยว"]}
             }]
         })
+        greeting_ans_dialog_first = ['เมี๊ยว ยินดีที่ได้รู้จักนะคุณ ', 'เมี๊ยว สวัสดีคุณ ', 'เมี๊ยว ดีใจจังที่คุณ ']
+        greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
+        # r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
     elif intent == 'thank':
         k = json.dumps({
-            "fulfillmentMessages" : [{
-                "platform" : "FACEBOOK",
-                "payload": {
-                    "facebook": {
-                      "attachment": {
-                        "payload": {
-                            "template_type": "generic",
-                            "elements": [
-                                {
-                                  "title": "TEST1",
-                                    "subtitle" : "tttt",
-                                    "image_url" : "",
-                                  "buttons": [
-                                    {
-                                      "type": "web_url",
-                                      "url": "https://taejai.com/th/projects/all/",
-                                      "title": "เวปไซต์เท"
-                                    },
-                                    {
-                                      "payload": "ค้นห",
-                                      "type": "postback",
-                                      "title": "ต้องการให้ช"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "title": "TEST2",
-                                    "subtitle" : "tttt",
-                                    "image_url" : "",
-                                  "buttons": [
-                                    {
-                                      "type": "web_url",
-                                      "url": "https://taejai.com/th/projects/all/",
-                                      "title": "เวปไซต์เท"
-                                    },
-                                    {
-                                      "payload": "ค้นห",
-                                      "type": "postback",
-                                      "title": "ต้องการให้ช"
-                                    }
-                                  ]
-                                }
-                              ]
-                        },
-                        "type": "template"
-                      }
-                    }
-                }
-            }]
         })
     elif intent == 'search':
         print(data)
@@ -151,7 +106,7 @@ def searchProjectName(text):
     result = article.search(text,client)
     card = []
     for hit in result:
-        card.append({"title" : hit.title, "subtitle" : hit.end_date, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'], "title" : "บริจาค"}]})
+        card.append({"title" : hit.title, "subtitle" : hit.end_date, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}]})
     print(card)
     return card
 
