@@ -66,12 +66,12 @@ def handle_intent():
         text = greeting_ans_dialog_first[ranNum]+data['first_name']+ greeting_ans_dialog_end[ranNum]
         print(text,"=dwa=daw=d=awd=aw")
         k = json.dumps({
-            "fulfillmentText" : "สวัสดีเมี๊ยว",
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
                 "payload" : {
                     "facebook" : {
                         "attachment" : {
+                            "type" : "template",
                             "payload" : {
                                 "template_type" : "button",
                                 "text" : text,
