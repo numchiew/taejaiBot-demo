@@ -94,7 +94,22 @@ def handle_intent():
             k = json.dumps({
                 "fulfillmentMessages" : [{
                     "platform" : "FACEBOOK",
-                    "text" : {"text" : ["เหมียว..หาไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ"]}
+                    "payload":{
+                        "facebook" : {
+                            "attachment" : {
+                                "type" : "template",
+                                "payload" : {
+                                    "template_type" : "button",
+                                    "text" : "เหมียว.. ลองค้นหาแล้วไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ",
+                                    "buttons" : [{
+                                        "type" : "postback",
+                                        "title" : "ค้นหาใหม่",
+                                        "payload" : "ค้นหา"
+                                    }]
+                                }
+                            }
+                        }
+                    }
                 }]
             })
         else:
@@ -124,7 +139,7 @@ def searchProjectName(text):
     result = article.search(text,client)
     card = []
     for hit in result:
-        card.append({"title" : hit.title, "subtitle" : "หมดเขต "+hit.end_date + "\nเป้าหมาย " + hit.donation_limit, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}]})
+        card.append({"title" : hit.title, "subtitle" : "หมดเขต "+hit.end_date + "\nเป้าหมาย " + hit.donation_limit, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}, {"type" : "postback", "title" : "ค้นหาใหม่", "payload" : "ค้นหา"}]})
     print(card)
     return card
 
