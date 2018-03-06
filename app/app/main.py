@@ -70,7 +70,7 @@ def handle_intent():
                     "subtitle" : "test2",
                     "imageUri" : "google.com",
                     "buttons" : [{
-                        "text" : "ลิ้ง"
+                        "text" : "ลิ้ง",
                         "postback" : "https://taejai.com/th/projects/all/"
                     }]
                 }
