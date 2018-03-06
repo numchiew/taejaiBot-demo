@@ -96,6 +96,7 @@ def searchProjectName(text):
     card = []
     for hit in result:
         card.append({"title" : hit.title, "subtitle" : hit.end_date, "imageUri" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"postback" : "https://taejai.com/th/d/" + hit['slug']}]})
+    print(card)
     return card
 
 @app.route('/search/<sender_id>')
