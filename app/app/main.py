@@ -122,10 +122,14 @@ def handle_intent():
                 "platform" : "FACEBOOK",
                 "payload" : {
                     "facebook" : {
-                        "template_type" : "generic",
-                        "elements" : card
-                    },
-                    "type" : "template"
+                        "attachment" : {
+                            "payload" : {
+                                "template_type" : "generic",
+                                "elements" : card
+                            },
+                            "type" : "template"
+                        }
+                    }
                 }
             }]
         })
