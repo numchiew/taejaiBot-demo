@@ -56,12 +56,14 @@ def handle_intent():
     print(data)
     intent = data['queryResult']['intent']['displayName']
     if intent == 'greeting':
+        sender_id = data['originalDetectIntentRequest']['payload']['data']['sender']['id']
         k = json.dumps({
             "fulfillmentText" : "สวัสดีเมี๊ยว",
             "fulfillmentMessages" : [{
-                "text" : {"text" : ["สวัสดีเมี๊ยว"]}
+                "text" : {"text" : ["สวัสดีเมี๊ยว" + sender_id]}
             }]
         })
+
         greeting_ans_dialog_first = ['เมี๊ยว ยินดีที่ได้รู้จักนะคุณ ', 'เมี๊ยว สวัสดีคุณ ', 'เมี๊ยว ดีใจจังที่คุณ ']
         greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
         # r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
