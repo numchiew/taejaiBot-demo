@@ -65,24 +65,33 @@ def handle_intent():
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
-                "type" : "template",
-                "payload" : {
-                    "facebook" : {
-                        "attachment" : {
-                            "payload" : {
-                                "template_type" : "generic",
-                                "elements" : [{
-                                    "image_url" : "",
-                                    "title" : "test2",
-                                    "subtitle" : "testse",
-                                    "buttons" : [{
-                                        "title" : "web",
-                                        "type" : "web_url",
-                                        "url" : "https://taejai.com/th/projects/all/"
-                                    }]
-                                }]
+                "payload": {
+                    "facebook": {
+                      "attachment": {
+                        "payload": {
+                          "elements": [
+                            {
+                              "title": "TEST1",
+                              "buttons": [
+                                {
+                                  "type": "web_url",
+                                  "url": "https://taejai.com/th/projects/all/",
+                                  "title": "เวปไซต์เท"
+                                },
+                                {
+                                  "payload": "ค้นห",
+                                  "type": "postback",
+                                  "title": "ต้องการให้ช"
+                                }
+                              ],
+                              "subtitle": "THIS_IS_PAGE_1",
+                              "image_url": ""
                             }
-                        }
+                          ],
+                          "template_type": "generic"
+                        },
+                        "type": "template"
+                      }
                     }
                 }
             }]
