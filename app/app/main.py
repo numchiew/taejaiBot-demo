@@ -87,10 +87,6 @@ def handle_intent():
                                     "type" : "web_url",
                                     "title" : "ส่งโครงการ",
                                     "url" : "https://taejai.com/th/submission/"
-                                },{
-                                    "type" : "postback",
-                                    "title" : "แจ้งปัญหา",
-                                    "payload" : "แจ้งปัญหา"
                                 }]
                             }
                         }
