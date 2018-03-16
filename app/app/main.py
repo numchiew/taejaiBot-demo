@@ -103,7 +103,7 @@ def handle_intent():
                                 "type" : "template",
                                 "payload" : {
                                     "template_type" : "button",
-                                    "text" : "เหมียว.. ลองค้นหาแล้วไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ",
+                                    "text" : "ลองค้นหาแล้วไม่เจอเลยอ่ะ ลองค้นหาใหม่ดูนะ",
                                     "buttons" : [{
                                         "type" : "postback",
                                         "title" : "ค้นหาใหม่",
