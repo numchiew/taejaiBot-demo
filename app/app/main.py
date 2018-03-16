@@ -59,11 +59,12 @@ def handle_intent():
     if intent == 'greeting':
         sender_id = data['originalDetectIntentRequest']['payload']['data']['sender']['id']
         greeting_ans_dialog_first = ['สวัสดีค่ะคุณ  ', 'สวัสดีคุณ ']
+        lt =  'ระหว่างรอแอดมินมาตอบให้ช่วยเหลืออะไรดีคะ'
         greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
         data = r.json()
         ranNum = random.randrange(len(greeting_ans_dialog_first))
-        text = greeting_ans_dialog_first[ranNum]+data['first_name']
+        text = greeting_ans_dialog_first[ranNum]+data['first_name'] + lt
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
@@ -82,6 +83,10 @@ def handle_intent():
                                     "type" : "web_url",
                                     "title" : "สถานะใบเสร็จ",
                                     "url" : "https://taejai.com/th/request-receipt/"
+                                },{
+                                    "type" : "web_url",
+                                    "title" : "ส่งโครงการ",
+                                    "url" : "https://taejai.com/th/submission/"
                                 }]
                             }
                         }
