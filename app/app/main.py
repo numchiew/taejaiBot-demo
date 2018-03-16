@@ -59,7 +59,7 @@ def handle_intent():
     if intent == 'greeting':
         sender_id = data['originalDetectIntentRequest']['payload']['data']['sender']['id']
         greeting_ans_dialog_first = ['สวัสดีค่ะคุณ  ', 'สวัสดีคุณ ']
-        lt =  'ระหว่างรอแอดมินมาตอบให้ช่วยเหลืออะไรดีคะ'
+        lt =  '\nระหว่างรอแอดมินมาตอบให้ช่วยเหลืออะไรดีคะ'
         greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
         data = r.json()
