@@ -147,7 +147,7 @@ def searchProjectName(text):
     result = article.search(text,client)
     card = []
     for hit in result:
-        card.append({"title" : hit.title, "subtitle" : "หมดเขต "+hit.end_date + "\nเป้าหมาย " + str(hit.donation_limit), "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}, {"type" : "postback", "title" : "ค้นหาใหม่", "payload" : "ค้นหา"}]})
+        card.append({"title" : hit.title, "subtitle" : "", "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}, {"type" : "postback", "title" : "ค้นหาใหม่", "payload" : "ค้นหา"}]})
     print(card)
     return card
 
