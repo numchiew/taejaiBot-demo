@@ -22,6 +22,7 @@ class Article(DocType):
     end_date = Text
     donation_limit = Text
     cover_image = Text
+    status = Text
 
     class Meta:
         index = 'project'
@@ -31,9 +32,9 @@ class Article(DocType):
         return super(Article, self).save(** kwargs)
 
 
-def insertDoc(_id,title,tags,slug,end_date, donation_limit, cover_image):
+def insertDoc(_id,title,tags,slug,end_date, donation_limit, cover_image, status):
     Article.init()
-    article = Article(meta={'id':_id}, title=title, tags=[tags], slug = slug, end_date = end_date, donation_limit = donation_limit, cover_image = cover_image)
+    article = Article(meta={'id':_id}, title=title, tags=[tags], slug = slug, end_date = end_date, donation_limit = donation_limit, cover_image = cover_image, status = status)
     article.body = ''
     k = article.save()
     return k
@@ -52,7 +53,7 @@ def insertData():
         for row in rows:
             if(str(row[12]) > past):
     #             print ("   ", row[0],"  ",row[3],"  ",row[7],"  ",row[5],"  ",row[12],"  ",row[17])
-                result = a = insertDoc(row[0],row[3],'project',row[5],row[12],row[7],row[17])
+                result = a = insertDoc(row[0],row[3],'project',row[5],row[12],row[7],row[17],row[16])
                 print(result)
     except:
         print("false")

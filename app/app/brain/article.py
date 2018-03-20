@@ -14,6 +14,9 @@ class Article(DocType):
     lines = Integer()
     slug = Text
     end_date = Text
+    donation_limit = Text
+    cover_image = Text
+    status = Text
 
     class Meta:
         index = 'blog'
@@ -23,18 +26,16 @@ class Article(DocType):
         return super(Article, self).save(** kwargs)
 
 
-def insertDoc(_id,title,tags,slug,end_date):
+def insertDoc(_id,title,tags,slug,end_date, donation_limit, cover_image, status):
     Article.init()
-    article = Article(meta={'id':_id}, title=title, tags=[tags])
+    article = Article(meta={'id':_id}, title=title, tags=[tags], slug = slug, end_date = end_date, donation_limit = donation_limit, cover_image = cover_image, status = status)
     article.body = ''
-    article.slug = slug
-    article.end_date = end_date
-    result = article.save()
-    return result
+    k = article.save()
+    return k
 
 
 def search(txt, client):
-    s = Search(using=client, index="project").query("match", title = txt)
+    s = Search(using=client, index="project").query("match", title = txt, status = "ongoing")
     response = s.execute()
     return response
 
