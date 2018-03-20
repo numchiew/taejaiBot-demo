@@ -69,8 +69,8 @@ def handle_intent():
                                 "text" : text,
                                 "buttons" : [{
                                     "type" : "postback",
-                                    "title" : "ค้นหาโครงการ",
-                                    "payload" : "ค้นหา"
+                                    "title" : "แจ้งปัญหา",
+                                    "payload" : "แจ้งปัญหา"
                                 },{
                                     "type" : "web_url",
                                     "title" : "สถานะใบเสร็จ",
