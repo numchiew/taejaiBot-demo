@@ -6,7 +6,10 @@ from datetime import datetime
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
 import psycopg2
-from ..config import default as default_config
+try:
+    from config import local as default_config
+except ImportError:
+    from config import default as default_config
 
 
 client = connections.create_connection(host=default_config.SERVER_PORT)
