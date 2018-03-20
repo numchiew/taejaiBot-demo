@@ -35,7 +35,7 @@ def insertDoc(_id,title,tags,slug,end_date, donation_limit, cover_image, status)
 
 
 def search(txt, client):
-    s = Search(using=client, index="project").query("match", title = txt, status = "ongoing")
+    s = Search(using=client, index="project").query("match", title = txt).query("match", status = "ongoing")
     response = s.execute()
     return response
 
