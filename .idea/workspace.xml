@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66d2efba-4d02-435f-852d-30fe5eb26642" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app/config/local.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/config/default.py" afterPath="$PROJECT_DIR$/app/app/config/default.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app/script/settings.py" afterPath="$PROJECT_DIR$/app/app/script/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="taejaiBot-demo.iws" />
@@ -59,7 +58,7 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-51.666668">
               <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -68,13 +67,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/app/script/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5925925">
-              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.625">
+              <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
               <folding>
-                <marker date="1521526142000" expanded="true" signature="1248:1292" placeholder="SELECT * fro..store_donation_donationproject..." />
+                <element signature="e#22#89#0" expanded="true" />
+                <marker date="1521527047000" expanded="true" signature="1252:1296" placeholder="SELECT * fro..store_donation_donationproject..." />
               </folding>
             </state>
           </provider>
@@ -114,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="local.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app/config/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1534091">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state vertical-scroll-proportion="-5.0">
+              <caret line="9" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -149,9 +149,9 @@
         <option value="$PROJECT_DIR$/app/app/webhook/view.py" />
         <option value="$PROJECT_DIR$/app/app/brain/article.py" />
         <option value="$PROJECT_DIR$/app/app/main.py" />
-        <option value="$PROJECT_DIR$/app/app/script/settings.py" />
         <option value="$PROJECT_DIR$/app/app/config/default.py" />
         <option value="$PROJECT_DIR$/app/app/config/local.py" />
+        <option value="$PROJECT_DIR$/app/app/script/settings.py" />
       </list>
     </option>
   </component>
@@ -260,7 +260,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="script" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -578,7 +578,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1521526142000" expanded="true" signature="1248:1292" placeholder="SELECT * fro..store_donation_donationproject..." />
+            <element signature="e#22#89#0" expanded="true" />
+            <marker date="1521527047000" expanded="true" signature="1252:1296" placeholder="SELECT * fro..store_donation_donationproject..." />
           </folding>
         </state>
       </provider>
@@ -787,16 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app/webhook/view.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -812,16 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app/script/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5925925">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <marker date="1521526142000" expanded="true" signature="1248:1292" placeholder="SELECT * fro..store_donation_donationproject..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app/config/default.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.6666666">
@@ -832,9 +813,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app/config/local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1534091">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="9" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-51.666668">
+          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app/script/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.625">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+          <folding>
+            <element signature="e#22#89#0" expanded="true" />
+            <marker date="1521527047000" expanded="true" signature="1252:1296" placeholder="SELECT * fro..store_donation_donationproject..." />
+          </folding>
         </state>
       </provider>
     </entry>

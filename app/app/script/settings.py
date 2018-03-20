@@ -38,7 +38,7 @@ def insertDoc(_id,title,tags,slug,end_date, donation_limit, cover_image):
 
 def insertData():
     try:
-        conn = psycopg2.connect("dbname='taejai'")
+        conn = psycopg2.connect(default_config.DB_URL)
         cur = conn.cursor()
         cur.execute("""SELECT * from store_donation_donationproject""")
         rows = cur.fetchall()
