@@ -6,9 +6,10 @@ from datetime import datetime
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
 import psycopg2
+from ..config import default as default_config
 
 
-client = connections.create_connection(host='128.199.70.132')
+client = connections.create_connection(host=default_config.SERVER_PORT)
 class Article(DocType):
     title = Text(analyzer='thai', fields={'raw': Keyword()})
     body = Text(analyzer='thai')
