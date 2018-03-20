@@ -63,6 +63,7 @@ def handle_intent():
         greeting_ans_dialog_end = [' เหมียวสามารถช่วยคุณค้นหาโครงการได้นะ', ' เหมียวพร้อมช่วยคุณค้นหาโครงการแล้ว', ' ทักมาให้เหมียวเป็นตัวช่วยในการค้นหาโครงการ']
         r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
         data = r.json()
+        print(data)
         ranNum = random.randrange(len(greeting_ans_dialog_first))
         text = greeting_ans_dialog_first[ranNum]+data['first_name'] + lt
         k = json.dumps({
