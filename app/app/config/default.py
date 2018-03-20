@@ -12,3 +12,8 @@ FB_APP_SECRET = 'FB_APP_SECRET'
 FB_VERIFY_TOKEN = 'FB_VERIFY_TOKEN'
 FB_PAGE_TOKEN = 'FB_PAGE_TOKEN'
 
+
+try:
+    import local
+except ImportError:
+    pass

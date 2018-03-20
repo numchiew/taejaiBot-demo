@@ -2,3 +2,6 @@
 *.ckp
 */nodes/
 app/nodes/0/indices/TgawATxeQv2kbKPIk3enhA/0/translog/translog.ckp
+.idea
+.idea/workspace.xml
+app/app/config/local.py
