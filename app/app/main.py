@@ -41,15 +41,6 @@ app.register_blueprint(webhook_view, url_prefix='/webhook')
 def index():
     return jsonify({"text": "hello, this is python-flask-fb-chatbot-starter :D ver"})
 
-@app.route('/searchProject/<txt>',methods=['GET'])
-def searchProject(txt):
-    result = article.search(txt,client)
-    list = []
-    for hit in result:
-        print(hit.title)
-        list.append({"title" : hit.title, "score" : hit.meta.score})
-    return jsonify(list)
-
 @app.route('/botAI', methods=['POST'],strict_slashes=False)
 def handle_intent():
     # print('HOOK FROM GOOGLE')
@@ -151,71 +142,6 @@ def searchProjectName(text):
         card.append({"title" : hit.title, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}, {"type" : "postback", "title" : "ค้นหาใหม่", "payload" : "ค้นหา"}]})
     print(card)
     return card
-
-@app.route('/search/<sender_id>')
-def search(sender_id):
-    r = requests.get('https://graph.facebook.com/v2.6/'+sender_id+'?access_token='+default_config.FB_PAGE_TOKEN)
-    data = r.json()
-    print(r.json())
-    return data['first_name']
-
-@app.route('/predict/<txt>')
-def predict(txt):
-    a = ''
-    b = []
-    result = function.get_result(txt)
-    for res in result:
-        print(res)
-        a += str(res)
-    return a
-    # for res in result:
-    #     # a += res
-    #     print(res, "====This is RES====")
-    #     k = list(res)
-    #     return jsonify({"list" : k})
-    # print(b)
-
-@app.route('/findName')
-def findProjectName():
-    res = []
-    queryj = ""
-    taejai = mongo.db.taejai
-    a = str(datetime.now())
-    date = a[0:10]
-    searchResult = taejai.find({'end_date' : {'$gte' : date}})
-    for doc in searchResult:
-        res.append({"name":doc["name"]})
-        queryj += "{\"name\":"+ (doc["name"]) +"]},"
-
-    print(res)
-    data = json.dumps({"taejai":queryj})
-    return data
-
-@app.route('/getProject')
-def getProject():
-    data = []
-    a = str(datetime.now())
-    date = a[0:10]
-    taejai = mongo.db.taejai
-    result = taejai.find({})
-    for res in result:
-        data.append({"id" : res["id"],"name" : res["name"]})
-    print(data)
-    return jsonify({"data" : data})
-
-@app.route('/findId')
-def findId():
-    res = []
-    queryj = ""
-    taejai = mongo.db.taejai
-    searchResult = taejai.find({})
-    for doc in searchResult:
-        res.append({"name":doc["id"]})
-        queryj += "{\"name\":"+ str(doc["id"]) +"]},"
-
-    print(res)
-    data = json.dumps({"taejai":queryj})
-    return data
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=80)
