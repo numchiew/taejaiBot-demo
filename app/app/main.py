@@ -87,7 +87,7 @@ def handle_intent():
             }]
         })
     elif intent == 'request-receipt':
-        donate_id = data['queryResult']['donate_id']
+        donate_id = data['queryResult']['queryText']
         card = searchReceipt(donate_id)
         k = json.dumps({
                 "fulfillmentMessages" : [{
