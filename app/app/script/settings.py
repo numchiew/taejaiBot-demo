@@ -22,7 +22,6 @@ class Article(DocType):
     end_date = Text
     donation_limit = Text
     cover_image = Text
-    status = Text
 
     class Meta:
         index = 'project'

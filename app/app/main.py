@@ -86,6 +86,25 @@ def handle_intent():
                 }
             }]
         })
+    elif intent == 'request-receipt':
+        donate_id = data['queryResult']['donate_id']
+        card = searchReceipt(donate_id)
+        k = json.dumps({
+                "fulfillmentMessages" : [{
+                    "platform" : "FACEBOOK",
+                    "payload" : {
+                        "facebook" : {
+                            "attachment" : {
+                                "payload" : {
+                                    "template_type" : "generic",
+                                    "elements" : card
+                                },
+                                "type" : "template"
+                            }
+                        }
+                    }
+                }]
+            })
     elif intent == 'search':
         print(data)
         text = data['queryResult']['queryText']
@@ -141,6 +160,24 @@ def searchProjectName(text):
     for hit in result:
         card.append({"title" : hit.title, "image_url" : "https://taejai.com/media/" + hit['cover_image'] ,"buttons" : [{"type" : "web_url","url" : "https://taejai.com/th/d/" + hit['slug'] + "#donate", "title" : "บริจาค"}, {"type" : "postback", "title" : "ค้นหาใหม่", "payload" : "ค้นหา"}]})
     print(card)
+    return card
+
+def searchReceipt(donate_id):
+    payload = {"query":"query DonationListQuery(\n  $text: String!\n) {\n  donations(text: $text) {\n    edges {\n      node {\n        ...Donation_donation\n        id\n      }\n    }\n  }\n}\n\nfragment Donation_donation on Donation {\n  id\n  created\n  hasInvoice\n  isRequestReceipt\n  project {\n    name\n    id\n  }\n}\n","variables":{"text":donate_id}}
+    r = requests.post(
+        'https://taejai.com/graphql',
+        headers={
+            'Content-Type': 'application/json'
+        },
+        json = payload
+        )
+    data = json.loads(r.text)
+    nodes = data['data']['donations']['edges']
+    print(nodes,"===============================")
+    card = []
+    for i in nodes:
+        date = str(i['node']['created'])
+        card.append({"title" : "โครงการ "+i['node']['project']['name'], "subtitle" : "บริจาคเมื่อ " + date[0:9], "buttons" : [{"type" : "postback", "title" : "ขอใบเสร็จ", "payload" : i['node']['id']}]})
     return card
 
 if __name__ == "__main__":
