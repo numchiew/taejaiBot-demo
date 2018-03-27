@@ -152,7 +152,7 @@ def handle_intent():
                                 },{
                                     "type" : "postback",
                                     "title" : "ไม่ต้องการ",
-                                    "payload" : "ไมต้องส่ง่"
+                                    "payload" : "ไม่ต้องส่ง่"
                                 }]
                             }
                         }
