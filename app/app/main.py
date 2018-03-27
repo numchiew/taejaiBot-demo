@@ -115,7 +115,7 @@ def handle_intent():
                         "attachment" : {
                             "payload" : {
                                 "template_type" : "button",
-                                "text" : "ชื่อบนใบเสร็จ " + param['name'] + "\nที่อยู่ " + param['address'],
+                                "text" : "ชื่อบนใบเสร็จ " + param['name'] + "ที่อยู่ " + param['address'],
                                 "buttons":[{
                                     "type" : "postback",
                                     "title" : "ถูกต้อง",
