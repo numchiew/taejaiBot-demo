@@ -214,7 +214,7 @@ def handle_intent():
             }]
         })
     elif intent == 'request-receipt - hasInvoice - True':
-        param = data['queryResult']['parameters']['number.original']
+        param = data['queryResult']['parameters']['number']
         param = str(int(param))
         sendReceipt(param, "", "" ,"")
     elif intent == 'send with no post':
@@ -322,6 +322,7 @@ def sendReceipt(nodeId, name ,address , donorAddress):
         json = payload
     )
     print(r)
+    print(nodeId, name , address , donorAddress)
     return r
 
 def searchProjectName(text):
