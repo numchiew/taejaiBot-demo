@@ -105,7 +105,7 @@ def handle_intent():
                     }
                 }]
             })
-    elif intent == 'request-receipt - hasInvoice - False':
+    elif intent == 'request-receipt - hasInvoice - False' or intent == 'request-receipt - hasInvoice - False - no':
         param = data['queryResult']['parameters']
         dialog = "ใบเสร็จจะถูกส่งไปในชื่อ " + param['name'] + " ที่อยู่ " + param['address']+ " ทางอีเมลล์ที่คุณใช้ในการบริจาค"
         k = json.dumps({
