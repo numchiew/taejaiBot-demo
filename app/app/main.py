@@ -44,6 +44,7 @@ def index():
 @app.route('/botAI', methods=['POST'],strict_slashes=False)
 def handle_intent():
     # print('HOOK FROM GOOGLE')
+    k = json.dumps({})
     data = request.get_json()
     print(data)
     intent = data['queryResult']['intent']['displayName']
