@@ -109,7 +109,7 @@ def handle_intent():
         param = data['queryResult']['parameters']
         k = json.dumps({
             "fulfillmentMessages" : [{
-                "playform" : "FACEBOOK",
+                "platform" : "FACEBOOK",
                 "payload" : {
                     "facebook" : {
                         "attachment" : {
