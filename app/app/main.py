@@ -72,9 +72,9 @@ def handle_intent():
                                     "title" : "แจ้งปัญหา",
                                     "payload" : "แจ้งปัญหา"
                                 },{
-                                    "type" : "web_url",
+                                    "type" : "postback",
                                     "title" : "สถานะใบเสร็จ",
-                                    "url" : "https://taejai.com/th/request-receipt/"
+                                    "payload" : "สถานะใบเสร็จ"
                                 },{
                                     "type" : "web_url",
                                     "title" : "ส่งโครงการ",
@@ -175,9 +175,14 @@ def searchReceipt(donate_id):
     nodes = data['data']['donations']['edges']
     print(nodes,"===============================")
     card = []
+    strButton = ''
     for i in nodes:
+        if(i['node']['hasInvoice']):
+            strButton = 'ขอใบเสร็จอีกครั้ง'
+        else:
+            strButton = 'ขอใบเสร็จ'
         date = str(i['node']['created'])
-        card.append({"title" : "โครงการ "+i['node']['project']['name'], "subtitle" : "บริจาคเมื่อ " + date[0:10], "buttons" : [{"type" : "postback", "title" : "ขอใบเสร็จ", "payload" : "ขอใบเสร็จ" + i['node']['id']}]})
+        card.append({"title" : "โครงการ "+i['node']['project']['name'], "subtitle" : "บริจาคเมื่อ " + date[0:10], "buttons" : [{"type" : "postback", "title" : strButton, "payload" : strButton+ " " + i['node']['id']}]})
     return card
 
 if __name__ == "__main__":
