@@ -159,7 +159,7 @@ def handle_intent():
                 }
             }]
         })
-    elif intent == 'post':
+    elif intent == 'post - confirm':
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
@@ -185,7 +185,7 @@ def handle_intent():
                 }
             }]
         })
-    elif intent == 'post - yes - edit - location':
+    elif intent == 'post - confirm - no':
         param = data['queryResult']['parameters']
         dialog = "ใบเสร็จจะถูกส่งไปที่ " + param['address']
         k = json.dumps({
