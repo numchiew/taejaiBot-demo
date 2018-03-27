@@ -217,16 +217,23 @@ def handle_intent():
         param = data['queryResult']['parameters']['number']
         # do request here.
     elif intent == 'send with no post':
-        print('data  ============================' , data)
-    elif intent == 'post - same - location':
-        print('data  ============================' , data)
         contexts = data['queryResult']['outputContexts']
         json_len = len(contexts)
         param = contexts[json_len -1]['parameters']
-        print("param" , param)
-        print('PARAMETER+++++++++++++++++', param['name.original'], param['order_id.original'], param['detail.original'], param['address.original'])
+        sendReceipt(param['order_id.original'], param['name.original'], param['address.original'], param[''])
+    elif intent == 'post - same - location':
+        contexts = data['queryResult']['outputContexts']
+        json_len = len(contexts)
+        param = contexts[json_len -1]['parameters']
+        # print("param" , param)
+        # print('PARAMETER+++++++++++++++++', param['name.original'], param['order_id.original'], param['detail.original'], param['address.original'])
+        sendReceipt(param['order_id.original'], param['name.original'], param['address.original'], param['address.original'])
     elif intent == 'post - confirm - edit - location - confirm':
-        print('data  ============================' , data)
+        donorAddress = data['queryResult']['outputContexts'][0]['parameters']
+        contexts = data['queryResult']['outputContexts']
+        json_len = len(contexts)
+        param = contexts[json_len -1]['parameters']
+        sendReceipt(param['order_id.original'], param['name.original'], param['address.original'], donorAddress['postAddress.original'])
     elif intent == 'post - confirm - no':
         param = data['queryResult']['parameters']
         dialog = "ใบเสร็จจะถูกส่งไปที่ " + param['address']
@@ -303,6 +310,17 @@ def handle_intent():
     print(k)
 
     return k
+
+def sendReceipt(nodeId, name ,address , donorAddress):
+    payload = {"query":"mutation RequestReceiptMutation(\n  $input: RequestReceiptInput!\n) {\n  requestReceipt(input: $input) {\n    donation {\n      id\n    }\n  }\n}\n","variables":{"input":{"id":nodeId,"invoiceAddressee":name,"invoiceAddress":address,"donorAddress":donorAddress}}}
+    r = requests.post(
+        'https://taejai.com/graphql',
+        headers={
+            'Content-Type': 'application/json'
+        },
+        json = payload
+    )
+    return r
 
 def searchProjectName(text):
     result = article.search(text,client)
