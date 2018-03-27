@@ -107,23 +107,25 @@ def handle_intent():
             })
     elif intent == 'request-receipt - hasInvoice - False':
         param = data['queryResult']['parameters']
+        dialog = "ใบเสร็จจะถูกส่งไปในชื่อ " + param['name'] + " ที่อยู่ " + param['address']
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
                 "payload" : {
                     "facebook" : {
                         "attachment" : {
+                            "type" : "template",
                             "payload" : {
                                 "template_type" : "button",
-                                "text" : "ชื่อบนใบเสร็จ " + param['name'] + "ที่อยู่ " + param['address'],
-                                "buttons":[{
+                                "text" : dialog,
+                                "buttons" : [{
                                     "type" : "postback",
-                                    "title" : "ถูกต้อง",
+                                    "title" : "ตกลง",
                                     "payload" : "ใช่"
                                 },{
                                     "type" : "postback",
                                     "title" : "แก้ไข",
-                                    "payload" : "ยกเลิก"
+                                    "payload" : "ไม่"
                                 }]
                             }
                         }
