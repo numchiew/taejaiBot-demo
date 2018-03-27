@@ -105,6 +105,32 @@ def handle_intent():
                     }
                 }]
             })
+    elif intent == 'request-receipt - hasInvoice - False':
+        param = data['queryResult']['parameters']
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "playform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "ชื่อบนใบเสร็จ " + param['name'] + "\nที่อยู่ " + param['address'],
+                                "buttons":[{
+                                    "type" : "postback",
+                                    "title" : "ถูกต้อง",
+                                    "payload" : "ใช่"
+                                },{
+                                    "type" : "postback",
+                                    "title" : "แก้ไข",
+                                    "payload" : "ยกเลิก"
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        })
     elif intent == 'search':
         print(data)
         text = data['queryResult']['queryText']
