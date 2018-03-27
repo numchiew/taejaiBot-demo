@@ -212,6 +212,79 @@ def handle_intent():
                 }
             }]
         })
+    elif intent == 'request-receipt - hasInvoice - True':
+        param = data['queryResult']['parameters']['number']
+        # do request here.
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "ส่งเรียบร้อยแล้ว",
+                            }
+                        }
+                    }
+                }
+            }]
+        })
+    elif intent == 'send with no post':
+        print('data  ============================' , data)
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "ส่งเรียบร้อยแล้ว",
+                            }
+                        }
+                    }
+                }
+            }]
+        })
+    elif intent == 'post - same - location':
+        print('data  ============================' , data)
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "ส่งเรียบร้อยแล้ว",
+                            }
+                        }
+                    }
+                }
+            }]
+        })
+    elif intent == 'post - confirm - edit - location - confirm':
+        print('data  ============================' , data)
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "ส่งเรียบร้อยแล้ว",
+                            }
+                        }
+                    }
+                }
+            }]
+        })
     elif intent == 'post - confirm - no':
         param = data['queryResult']['parameters']
         dialog = "ใบเสร็จจะถูกส่งไปที่ " + param['address']
