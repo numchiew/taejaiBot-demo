@@ -232,58 +232,24 @@ def handle_intent():
             }]
         })
     elif intent == 'send with no post':
-        print('data  ============================' , data)
         k = json.dumps({
             "fulfillmentMessages" : [{
-                "platform" : "FACEBOOK",
-                "payload" : {
-                    "facebook" : {
-                        "attachment" : {
-                            "type" : "template",
-                            "payload" : {
-                                "template_type" : "button",
-                                "text" : "ส่งเรียบร้อยแล้ว",
-                            }
-                        }
-                    }
-                }
-            }]
+                "text" : "ส่งเรียบร้อยแล้ว"
+                }]
         })
     elif intent == 'post - same - location':
         print('data  ============================' , data)
         k = json.dumps({
             "fulfillmentMessages" : [{
-                "platform" : "FACEBOOK",
-                "payload" : {
-                    "facebook" : {
-                        "attachment" : {
-                            "type" : "template",
-                            "payload" : {
-                                "template_type" : "button",
-                                "text" : "ส่งเรียบร้อยแล้ว",
-                            }
-                        }
-                    }
-                }
-            }]
+                "text" : "ส่งเรียบร้อยแล้ว"
+                }]
         })
     elif intent == 'post - confirm - edit - location - confirm':
         print('data  ============================' , data)
         k = json.dumps({
             "fulfillmentMessages" : [{
-                "platform" : "FACEBOOK",
-                "payload" : {
-                    "facebook" : {
-                        "attachment" : {
-                            "type" : "template",
-                            "payload" : {
-                                "template_type" : "button",
-                                "text" : "ส่งเรียบร้อยแล้ว",
-                            }
-                        }
-                    }
-                }
-            }]
+                "text" : "ส่งเรียบร้อยแล้ว"
+                }]
         })
     elif intent == 'post - confirm - no':
         param = data['queryResult']['parameters']
