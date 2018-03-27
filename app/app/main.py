@@ -173,7 +173,7 @@ def handle_intent():
                                 "buttons" : [{
                                     "type" : "postback",
                                     "title" : "ใช่",
-                                    "payload" : "ใช่"
+                                    "payload" : "ทำเลย"
                                 },{
                                     "type" : "postback",
                                     "title" : "แก้ไข",
