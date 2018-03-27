@@ -214,7 +214,7 @@ def handle_intent():
             }]
         })
     elif intent == 'request-receipt - hasInvoice - True':
-        param = data['queryResult']['parameters']['number']
+        param = data['queryResult']['parameters']['number.original']
         sendReceipt(param, "", "" ,"")
     elif intent == 'send with no post':
         contexts = data['queryResult']['outputContexts']
