@@ -147,11 +147,11 @@ def handle_intent():
                                 "buttons" : [{
                                     "type" : "postback",
                                     "title" : "ต้องการ",
-                                    "payload" : "ใช่"
+                                    "payload" : "ส่งไปรษณีย์"
                                 },{
                                     "type" : "postback",
                                     "title" : "ไม่ต้องการ",
-                                    "payload" : "ไม่"
+                                    "payload" : "ไมต้องส่ง่"
                                 }]
                             }
                         }
