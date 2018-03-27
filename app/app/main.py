@@ -173,11 +173,38 @@ def handle_intent():
                                 "buttons" : [{
                                     "type" : "postback",
                                     "title" : "ใช่",
-                                    "payload" : "ทำเลย"
+                                    "payload" : "ที่อยู่เดิม"
                                 },{
                                     "type" : "postback",
                                     "title" : "แก้ไข",
-                                    "payload" : "ไม่"
+                                    "payload" : "จะเปลี่ยนที่อยู่"
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        })
+    elif intent == 'post - confirm - edit - location' or intent == 'post - confirm - edit - location - again':
+        param = data['queryResult']['parameters']
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "ที่อยู่สำหรับการจัดส่งคือ " + param['postAddress'],
+                                "buttons" : [{
+                                    "type" : "postback",
+                                    "title" : "ใช่",
+                                    "payload" : "ส่งเลย"
+                                },{
+                                    "type" : "postback",
+                                    "title" : "แก้ไข",
+                                    "payload" : "ขอเปลี่ยนอีกครั้ง"
                                 }]
                             }
                         }
