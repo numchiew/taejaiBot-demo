@@ -107,7 +107,7 @@ def handle_intent():
             })
     elif intent == 'request-receipt - hasInvoice - False' or intent == 'request-receipt - hasInvoice - False - no':
         param = data['queryResult']['parameters']
-        dialog = "ใบเสร็จจะถูกส่งไปในชื่อ " + param['name'] + " ที่อยู่ " + param['address']
+        dialog = "ใบเสร็จจะถูกส่งไปในชื่อ " + param['name'] + " ที่อยู่ " + param['address']+ " ทางอีเมลล์ที่คุณใช้ในการบริจาค"
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
@@ -121,6 +121,86 @@ def handle_intent():
                                 "buttons" : [{
                                     "type" : "postback",
                                     "title" : "ตกลง",
+                                    "payload" : "ใช่"
+                                },{
+                                    "type" : "postback",
+                                    "title" : "แก้ไข",
+                                    "payload" : "ไม่"
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        })
+    elif intent == 'post':
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "คุณต้องการให้จัดส่งทางไปรษณีย์หรือไม่",
+                                "buttons" : [{
+                                    "type" : "postback",
+                                    "title" : "ต้องการ",
+                                    "payload" : "ใช่"
+                                },{
+                                    "type" : "postback",
+                                    "title" : "ไม่ต้องการ",
+                                    "payload" : "ไม่"
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        })
+    elif intent == 'post - yes':
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : "ต้องการให้จัดส่งที่อยู่เดียวกับที่กรอกหรือไม่",
+                                "buttons" : [{
+                                    "type" : "postback",
+                                    "title" : "ใช่",
+                                    "payload" : "ใช่"
+                                },{
+                                    "type" : "postback",
+                                    "title" : "แก้ไข",
+                                    "payload" : "ไม่"
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        })
+    elif intent == 'post - yes - edit - location':
+        param = data['queryResult']['parameters']
+        dialog = "ใบเสร็จจะถูกส่งไปที่ " + param['address']
+        k = json.dumps({
+            "fulfillmentMessages" : [{
+                "platform" : "FACEBOOK",
+                "payload" : {
+                    "facebook" : {
+                        "attachment" : {
+                            "type" : "template",
+                            "payload" : {
+                                "template_type" : "button",
+                                "text" : dialog,
+                                "buttons" : [{
+                                    "type" : "postback",
+                                    "title" : "ใช่",
                                     "payload" : "ใช่"
                                 },{
                                     "type" : "postback",
