@@ -177,7 +177,7 @@ def searchReceipt(donate_id):
     card = []
     for i in nodes:
         date = str(i['node']['created'])
-        card.append({"title" : "โครงการ "+i['node']['project']['name'], "subtitle" : "บริจาคเมื่อ " + date[0:10], "buttons" : [{"type" : "postback", "title" : "ขอใบเสร็จ "+str(i['node']['id']), "payload" : "ขอใบเสร็จ" + i['node']['id']}]})
+        card.append({"title" : "โครงการ "+i['node']['project']['name'], "subtitle" : "บริจาคเมื่อ " + date[0:10], "buttons" : [{"type" : "postback", "title" : "ขอใบเสร็จ", "payload" : "ขอใบเสร็จ" + i['node']['id']}]})
     return card
 
 if __name__ == "__main__":
