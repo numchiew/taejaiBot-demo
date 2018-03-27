@@ -221,7 +221,7 @@ def handle_intent():
         contexts = data['queryResult']['outputContexts']
         json_len = len(contexts)
         param = contexts[json_len -1]['parameters']
-        sendReceipt(param['order_id.original'], param['name.original'], param['address.original'], "")
+        sendReceipt(param['order_id.original'], param['name.original'], param['address.original'], '')
     elif intent == 'post - same - location':
         contexts = data['queryResult']['outputContexts']
         json_len = len(contexts)
