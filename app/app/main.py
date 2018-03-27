@@ -218,6 +218,7 @@ def handle_intent():
         param = str(int(param))
         sendReceipt(param, "", "" ,"")
     elif intent == 'send with no post':
+        print("kdwakdajdajdjadja")
         contexts = data['queryResult']['outputContexts']
         json_len = len(contexts)
         param = contexts[json_len -1]['parameters']
