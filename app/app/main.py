@@ -220,7 +220,7 @@ def handle_intent():
         print('data  ============================' , data)
     elif intent == 'post - same - location':
         print('data  ============================' , data)
-        contexts = data['outputContexts']
+        contexts = data['queryResult']['outputContexts']
         json_len = len(contexts)
         param = contexts[json_len -1]
         print('PARAMETER+++++++++++++++++', param['name.original'], param['order_id.original'], param['detail.original'], param['address.original'])
