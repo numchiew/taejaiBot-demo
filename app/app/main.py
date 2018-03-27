@@ -133,7 +133,7 @@ def handle_intent():
                 }
             }]
         })
-    elif intent == 'post':
+    elif intent == 'request-receipt - hasInvoice - False - yes':
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
