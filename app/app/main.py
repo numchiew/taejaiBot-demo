@@ -159,7 +159,7 @@ def handle_intent():
                 }
             }]
         })
-    elif intent == 'post - yes':
+    elif intent == 'post':
         k = json.dumps({
             "fulfillmentMessages" : [{
                 "platform" : "FACEBOOK",
