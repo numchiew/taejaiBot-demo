@@ -215,7 +215,7 @@ def handle_intent():
         })
     elif intent == 'request-receipt - hasInvoice - True':
         param = data['queryResult']['parameters']['number']
-        # do request here.
+        sendReceipt(param, "", "" ,"")
     elif intent == 'send with no post':
         contexts = data['queryResult']['outputContexts']
         json_len = len(contexts)
