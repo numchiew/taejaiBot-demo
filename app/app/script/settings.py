@@ -46,14 +46,10 @@ def insertData():
         cur.execute("""SELECT * from store_donation_donationproject""")
         rows = cur.fetchall()
         print("\nShow me the databases:\n")
-        past = str(datetime.now())
-        past = past[0:10]
-        # print(past)
         for row in rows:
-            if(str(row[12]) > past):
-    #             print ("   ", row[0],"  ",row[3],"  ",row[7],"  ",row[5],"  ",row[12],"  ",row[17])
-                result = a = insertDoc(row[0],row[3],'project',row[5],row[12],row[7],row[17],row[16])
-                print(result)
+    #       print ("   ", row[0],"  ",row[3],"  ",row[7],"  ",row[5],"  ",row[12],"  ",row[17])
+            result = a = insertDoc(row[0],row[3],'project',row[5],row[12],row[7],row[17],row[16])
+            print(result)
     except:
         print("false")
 

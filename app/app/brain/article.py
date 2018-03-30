@@ -19,7 +19,7 @@ class Article(DocType):
     status = Text
 
     class Meta:
-        index = 'blog'
+        index = 'project'
 
     def save(self, ** kwargs):
         self.lines = len(self.body.split())
